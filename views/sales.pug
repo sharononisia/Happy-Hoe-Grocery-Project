@@ -1,0 +1,22 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Receipt Generator
+  link(rel='stylesheet' href='../public/css/gen.css')
+.container
+  h1 Record Sales
+  // Form for generating a receipt
+  form#receiptForm(action='' method='POST')
+    label(for='salesAgent') The sales Agent Name:
+    input#salesAgent(type='text' name='salesAgent' required='')
+    label(for='transactionId') Transaction ID:
+    input#transactionId(type='text' name='transactionId' required='')
+    label(for='date') Date and Time:
+    input#date(type='datetime-local' name='date' required='')
+    label(for='customerName') Customer Name:
+    input#customerName(type='text' name='customerName' required='')
+    label(for='items') Items (format: Item, Quantity, Price):
+    textarea#items(name='items' rows='5' required='')
+    button(type='button' onclick='generateReceipt()') Generate Receipt
+script(src='../public/js/gen.js')

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Generator</title>
+    <link rel="stylesheet" href="../public/css/gen.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Record Sales</h1>
+        <!-- Form for generating a receipt -->
+        <form id="receiptForm" action="" method="POST">
+
+            <label for="salesAgent">The sales Agent Name:</label>
+            <input type="text" id="salesAgent" name="salesAgent" required>
+
+            <label for="transactionId">Transaction ID:</label>
+            <input type="text" id="transactionId" name="transactionId" required>
+            
+            <label for="date">Date and Time:</label>
+            <input type="datetime-local" id="date" name="date" required>
+            
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" required>
+            
+            <label for="items">Items (format: Item, Quantity, Price):</label>
+            <textarea id="items" name="items" rows="5" required></textarea>
+            
+            <button type="button" onclick="generateReceipt()">Generate Receipt</button>
+        </form>
+    </div>
+
+    <script src="../public/js/gen.js"></script>
+</body>
+</html>

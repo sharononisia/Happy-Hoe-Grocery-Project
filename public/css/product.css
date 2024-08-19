@@ -1,0 +1,79 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+.form-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+main {
+    padding: 20px;
+    
+}
+
+.stat-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* This allows images to wrap to the next line if they don't fit */
+    gap: 10px; /* Space between images */
+}
+
+.stat-card {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    padding:10px;
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+}
+
+.stat-card .stat-image{
+    width: 100%;
+    border-radius: 8px;
+}
+.form-container {
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #04fe10;
+    padding:20px;
+    margin: 80px auto;
+}
+.register-container {
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #04fe10;
+    padding:20px;
+    margin: 80px auto;
+}
+.register-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #050404;
+    color: #f4f4f4;
+}

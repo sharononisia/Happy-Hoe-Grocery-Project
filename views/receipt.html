@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="/css/gen.css">
+    <style>
+        .receipt-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .receipt-header,
+        .receipt-items,
+        .receipt-footer {
+            margin-bottom: 20px;
+        }
+
+        .receipt-items table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .receipt-items table,
+        .receipt-items th,
+        .receipt-items td {
+            border: 1px solid #ddd;
+        }
+
+        .receipt-items th,
+        .receipt-items td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .receipt-items th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="Post">
+        <div class="receipt-container">
+            <div class="receipt-header">
+                <h1>KGL GROCERY LIMITED</h1>
+                <h2>Receipt</h2>
+                <p id="salesAgent"></p>
+                <p id="transactionId"></p>
+                <p id="receiptDate"></p>
+                <p id="customerName"></p>
+            </div>
+            <div class="receipt-items">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity (Kg)</th>
+                            <th>Unit Price</th>
+                            <th>Amount (Ugx)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="receiptItemsBody">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Subtotal</td>
+                            <td id="subTotal"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Tax (2%)</td>
+                            <td id="tax"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td id="grandTotal"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="receipt-footer">
+                <button onclick="window.print()">Print Receipt</button>
+                <button onclick="window.location.href='index.html'">Back</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const receiptData = JSON.parse(localStorage.getItem('receiptData'));
+
+            if (receiptData) {
+                document.getElementById('salesAgent').innerText = `Agent: ${receiptData.salesAgent}`;
+
+                document.getElementById('transactionId').innerText = `Transaction ID: ${receiptData.transactionId}`;
+
+                document.getElementById('receiptDate').innerText = `Date: ${receiptData.date}`;
+
+                document.getElementById('customerName').innerText = `Customer Name: ${receiptData.customerName}`;
+
+
+                document.getElementById('subTotal').innerText = receiptData.subtotal;
+
+                document.getElementById('tax').innerText = receiptData.tax;
+
+                document.getElementById('grandTotal').innerText = receiptData.total;
+
+
+
+                const itemsBody = document.getElementById('receiptItemsBody');
+                receiptData.items.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.price}</td>
+                        <td>${item.amount}</td>
+                    `;
+                    itemsBody.appendChild(row);
+                });
+            } else {
+                document.body.innerHTML = '<h1>No receipt data found</h1>';
+            }
+        });
+    </script>
+</body>
+
+</html>
