@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Produce Procured
+  link(rel='stylesheet' href='/css/produce.css')
+.container
+  form.produce-form(action='/updateproduce?id='+produce._id method='POST')
+    h1 Produce Procured Records
+    label(for='produce') Name of Produce:
+    input#produce(type='text' name='produce')
+    br
+    br
+    label(for='typeOfProduce') Type of Produce:
+    select#typeOfProduce(name='typeOfProduce')
+      option(value='legumes' selected = produce.typeOfProduce === "legumes") Legumes
+      option(value='grains' selected = produce.typeOfProduce === "grains") Grains
+    br
+    br
+    label(for='date') Date:
+    input#date(type='date' name='date')
+    br
+    br
+    label(for='timeOfProduce') Time of Produce:
+    input#timeOfProduce(type='time' name='timeOfProduce')
+    br
+    br
+    label(for='quantity') Tonnage in kg:
+    input#quantity(type='number' name='quantity')
+    br
+    br
+    label(for='theCostPerKg') The Cost Per Kg:
+    input#theCostPerKg(type='number' name='theCostPerKg')
+    br
+    br
+    label(for='theTotalCost') The Total Cost:
+    input#theTotalCost(type='number' name='theTotalCost')
+    br
+    br
+    label(for='nameOfDealer') Name of Dealer:
+    input#nameOfDealer(type='text' name='nameOfDealer')
+    br
+    br
+    label(for='theBranchName') The Branch Name:
+    select#theBranchName(name='theBranchName')
+      option(value='matugga' selected = produce.theBranchName === "Matugga") Matugga
+      option(value='maganjo' selected = produce.theBranchName === "Maganjo") Maganjo
+    br
+    br
+    label(for='contact') Contact:
+    input#contact(type='text' name='contact')
+    br
+    br
+    label(for='thePriceToBeSoldAt') The Price to be Sold at per Kg:
+    input#thePriceToBeSoldAt(type='text' name='thePriceToBeSoldAt')
+    br
+    br
+    input(type='submit' value='Submit')

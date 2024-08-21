@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title Credit List
+    link(rel='stylesheet', href='/css/credit.css')
+  body
+    .container
+      h2.text-center.mt-5.mb-4 All Credit List
+      table.table.table-striped
+        thead
+          tr
+            th(scope='col') Name of Buyer
+            th(scope='col') National ID (NIN)
+            th(scope='col') Location
+            th(scope='col') Contact
+            th(scope='col') Amount Due
+            th(scope='col') Sales Agent Name
+            th(scope='col') Due Date
+            th(scope='col') The Produce Name
+            th(scope='col') Type of Produce
+            th(scope='col') Tonnage in Kgs
+            th(scope='col') Date of Dispatch
+            th(scope='col') Action
+        tbody
+          if credit-sales.length
+          each credit-sale in credit-sales
+             tr
+                td #{credit-sale.buyer}
+                td #{credit-sale.nin}
+                td #{credit-sale.location}
+                td #{credit-sale.contact}
+                td #{credit-sale.amountDue}
+                td #{credit-sale.salesAgentName}
+                td #{credit-sale.dueDate}
+                td #{credit-sale.theProduceName}
+                td #{credit-sale.typeOfProduce}
+                td #{credit-sale.quantity}
+                td #{credit-sale.date}
+                td
+                  a.btn.btn-primary.btn-sm(href='/updateCredit/' +credit-sale._id) Update
+                td
+                  form(method="POST" action='/deleteCredit')
+                    input(type="hidden", placeholder="", name="id", value=credit-sale.id)
+                    button.btn.btn-danger.btn-sm(type="submit") Delete
+            else
+               tr
+                 td(colspan="12", class="text-center") No Credit Sale yet :()

@@ -15,15 +15,15 @@ router.post(
     req.session.user = req.user; // Assign session to the logged-in user
 
     // Redirect based on the user's role
-    // if (req.user.role === "manager") {
-    //   // res.send("Welcome to the Manager's dashboard!");
-    //   res.redirect("/manager-dashboard");
-    // } else if (req.user.role === "sales-agent") {
-    //   // res.send("Welcome to the Sales Agent's dashboard!");
-    //   res.redirect("/sales-agent-dashboard");
-    // } else {
-    //   res.send("User with that role does not exist in the system");
-    // }
+    if (req.user.role === "manager") {
+      // res.send("Welcome to the Manager's dashboard!");
+      res.redirect("/manager-dashboard");
+    } else if (req.user.role === "sales-agent") {
+      // res.send("Welcome to the Sales Agent's dashboard!");
+      res.redirect("/sales-agent-dashboard");
+    } else {
+      res.send("User with that role does not exist in the system");
+    }
   }
 );
 

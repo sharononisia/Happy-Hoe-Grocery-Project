@@ -5,24 +5,22 @@ const connectEnsureLogin = require("connect-ensure-login");
 const signup = require("../models/signup");
 
 // // home route
-// router.get("/", (req, res) => {
-//   // res.send("Welcome to HHG Management System");
-//   res.render("home");
-// });
-
+router.get("/", (req, res) => {
+  res.render("index");
+});
 
 // // manager route
-// // connectEnsureLogin.ensureLoggedIn(),
-// router.get("/manager-dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-//   // res.send("Welcome to HHG Management System");
-//   res.render("manager-dashboard");
-// });
+// connectEnsureLogin.ensureLoggedIn(),
+router.get("/manager", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+  // res.send("Welcome to HHG Management System");
+  res.render("manager-dashboard");
+});
 
 // // sales agent route
-// router.get("/sales-dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-//   // res.send("Welcome to HHG Management System");
-//   res.render("sales-agent-dashboard");
-// });
+router.get("/sales_dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+  // res.send("Welcome to HHG Management System");
+  res.render("sales-agentdashboard");
+});
 
 // get all users
 router.get("/all-users", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 //added
 
@@ -14,20 +15,29 @@ saveUninitialized: false//the session didnot start donot save
 require("dotenv").config();
 
 //import models
-
-const Signup  = require('./models/signup')
+const Signup  = require('./models/signup');
+const Produce  = require('./models/produce');
+const Sales = require('./models/sale');
+const Credit = require('./models/credit');
 
 //import routes
-
 const signupRoutes = require('./routes/signupRoutes')
 const loginRoutes = require('./routes/loginRoutes');
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+const stockRoutes = require('./routes/stockRoutes');
+const thesaleRoutes = require('./routes/thesaleRoutes');
+const logoutRoutes = require('./routes/logoutRoutes');
+const creditsaleRoutes = require('./routes/creditsaleRoutes');
+const managerRoutes = require('./routes/managerRoutes');
+const sales_dashboardRoutes = require('./routes/sales_dashboardRoutes');
+
 
 //instantiations
 const app = express();
 const port = 5000;
 
 //configuration
+app.locals.moment = moment
 app.set("view engine", "pug");// specify the view engine
 app.set("views", path.join(__dirname, "views"));//specify the views directory
 
@@ -66,6 +76,12 @@ passport.deserializeUser(Signup.deserializeUser()); // the serial number is dest
 app.use("/", loginRoutes);
 app.use("/", signupRoutes);
 app.use("/", userRoutes);
+app.use("/", stockRoutes);
+app.use("/", thesaleRoutes);
+app.use("/", logoutRoutes);
+app.use("/", creditsaleRoutes);
+app.use("/", managerRoutes);
+app.use("/", sales_dashboardRoutes);
 
 app.get("*", (req, res) => {
   res.send("Error! This page does not exist");

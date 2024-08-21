@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    title Sales
+    Link(rel="stylesheet" href="/css/saleslist.css")     
+  body
+    h1 Sales List
+    table
+      thead
+        tr
+          th The Sales Agent Name
+          th Transaction ID
+          th Date and Time
+          th Customer Name
+          th Items
+          th Action
+          th
+      tbody
+        if sales.length 
+        each sale in sales
+          tr
+            td #{sale.salesAgent}
+            td #{sale.transactionID}
+            td #{sale.datetime}
+            td #{sale.customerName}
+            td #{sale.items}
+            td 
+              a(href="/update-sale/"+user._id class="edit-btn") Edit
+            td
+              form(method="POST" action="/delete-sale")
+                input(type="hidden" Name="id" value=user._id )
+                button(class="delete-btn" type="submit") Delete
+        else 
+          p No sales yet

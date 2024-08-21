@@ -1,0 +1,38 @@
+.container {
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding:20px;
+    margin: 80px auto;
+    background-image: url();
+    align-items: center;
+
+
+}
+.produce-form{
+    align-items: center;
+    justify-content: center;
+
+
+} 
+h1 {
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 10%;
+    padding: 10px;
+    background-color: #04fe10;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color:#04fe10;
+
+}
+
+
