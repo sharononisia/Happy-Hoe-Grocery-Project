@@ -17,8 +17,9 @@ require("dotenv").config();
 //import models
 const Signup  = require('./models/signup');
 const Produce  = require('./models/produce');
-const Sales = require('./models/sale');
+const Sale = require('./models/sale');
 const Credit = require('./models/credit');
+
 
 //import routes
 const signupRoutes = require('./routes/signupRoutes')
@@ -30,6 +31,9 @@ const logoutRoutes = require('./routes/logoutRoutes');
 const creditsaleRoutes = require('./routes/creditsaleRoutes');
 const managerRoutes = require('./routes/managerRoutes');
 const sales_dashboardRoutes = require('./routes/sales_dashboardRoutes');
+const billRoutes = require('./routes/billRoutes');
+const cerealRoutes = require('./routes/cerealRoutes');
+const homeRoutes = require('./routes/homeRoutes');
 
 
 //instantiations
@@ -82,9 +86,25 @@ app.use("/", logoutRoutes);
 app.use("/", creditsaleRoutes);
 app.use("/", managerRoutes);
 app.use("/", sales_dashboardRoutes);
+app.use("/", billRoutes);
+app.use("/", cerealRoutes);
+app.use("/", homeRoutes);
 
 app.get("*", (req, res) => {
   res.send("Error! This page does not exist");
+});
+
+// Logout, call back checking if there is a session
+app.post('/logout', (req, res) => {
+  if (req.session) {
+    req.session.destroy((err) => {
+      if (err) {
+        // failed to destroy session
+      } else {
+        return res.redirect('/login');
+      }
+    });
+  }
 });
 
 

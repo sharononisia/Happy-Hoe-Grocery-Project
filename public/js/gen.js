@@ -19,7 +19,7 @@ function generateReceipt() {
 
 
     // Calculate tax and total
-    const taxRate = 0.02; // 2%
+    const taxRate = 0.00; // 0%
     const tax = subtotal * taxRate;
     const total = subtotal + tax;
 
@@ -29,7 +29,7 @@ function generateReceipt() {
         // Store data in localStorage
         localStorage.setItem('receiptData', JSON.stringify({ salesAgent, date, customerName, transactionId, items, tax, total, subtotal }));
         // Redirect to receipt page
-        window.location.href = 'receipt.html';
+        window.location.href = 'receipt';
     } else {
         alert('Please fill out all fields correctly.');
     }

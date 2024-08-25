@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const salesSchema = new mongoose.Schema({
+const saleSchema = new mongoose.Schema({
     salesAgent: {
         type: String,
         trim: true,
     },
-    transactionID: {
+    transactionId: {
         type: String,
         trim: true,
     },
-    datetime: {
+    date: {
         type: String,
         trim: true,
     },
@@ -19,9 +19,8 @@ const salesSchema = new mongoose.Schema({
     items: {
         type: String,
         trim: true,
-    },
-  
+    },  
 });
 
 
-module.exports = mongoose.model('Sales', salesSchema);
+module.exports = mongoose.model('Sale', saleSchema);

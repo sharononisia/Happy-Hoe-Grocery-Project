@@ -10,13 +10,15 @@ head
   nav
     ul
       li
-        a(href='dashboard.html') Home
+        a(href='home') Home
       li
-        a(href='sales.pug') Sales
+        a(href='thesale') Sales
       li
-        a(href='credit-sale.pug') Credit Sales
+        a(href='credit-sale') Credit Sales
       li
-        a(href='index.pug') Logout
+        a.btn.btn-dark.btn-block(href="#" onclick="document.getElementById('logout-form').submit();") Log out
+        form#logout-form(method="post" action='/logout' style="display:none;")  
+      
 #content
   header
     h1 Dashboard

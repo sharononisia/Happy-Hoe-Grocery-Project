@@ -54,14 +54,15 @@ form(action='' method='Post')
             td(colspan='3') Subtotal
             td#subTotal
           tr
-            td(colspan='3') Tax (2%)
+            td(colspan='3') Tax (0%)
             td#tax
           tr
             td(colspan='3') Total
             td#grandTotal
-    .receipt-footer
-      button(onclick='window.print()') Print Receipt
-      button(onclick="window.location.href='index.html'") Back
+    .receipt-footer 
+    .col-md-6
+      button(onclick='window.print()') Print Receipt 
+      button(onclick="window.location.href='thesale'") Back
 script.
   document.addEventListener('DOMContentLoaded', () => {
   const receiptData = JSON.parse(localStorage.getItem('receiptData'));

@@ -37,11 +37,15 @@ html
                 td #{produce.contact}
                 td #{produce.thePriceToBeSoldAt}
                 td
-                  a.btn.btn-primary.btn-sm(href='/updateProduce/' +produce._id) Update
+                  a.btn.btn-primary.btn-sm(href='/add_sale/' +produce._id) Make Sale
+                td
+                  a.btn.btn-primary.btn-sm(href='/updateProduce/'+produce._id) Update
                 td
                   form(method="POST" action='/deleteProduce')
-                    input(type="hidden", placeholder="", name="id", value=produce.id)
+                    input(type="hidden", placeholder="", name="id", value=produce._id)
                     button.btn.btn-danger.btn-sm(type="submit") Delete
           else
-            tr
-              td(colspan="8", class="text-center") No produce yet :()
+                tr
+                td(colspan="8", class="text-center") No produce yet :()
+
+           

@@ -11,16 +11,16 @@ router.get("/", (req, res) => {
 
 // // manager route
 // connectEnsureLogin.ensureLoggedIn(),
-router.get("/manager", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-  // res.send("Welcome to HHG Management System");
-  res.render("manager-dashboard");
-});
+// router.get("/manager", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+//   // res.send("Welcome to HHG Management System");
+//   res.render("manager-dashboard");
+// });
 
-// // sales agent route
-router.get("/sales_dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-  // res.send("Welcome to HHG Management System");
-  res.render("sales-agentdashboard");
-});
+// // // sales agent route
+// router.get("/sales_dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+//   // res.send("Welcome to HHG Management System");
+//   res.render("sales-agentdashboard");
+// });
 
 // get all users
 router.get("/all-users", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
@@ -31,10 +31,10 @@ router.get("/all-users", connectEnsureLogin.ensureLoggedIn(), async (req, res) =
         users: allUsers,
       });
     }else {
-      res.send("Only Managers are allowed to access this page")
+      res.send("Only Managers can access this page")
     }
   } catch (error) {
-    res.status(400).send("Unable to find users in your database", error);
+    res.status(400).send("Unable to find users in your db", error);
   }
 });
 
@@ -47,7 +47,7 @@ router.get("/update-user/:id", async (req, res) => {
       user: dbUser,
     });
   } catch (err) {
-    res.status(400).send("Unable to find user in the database");
+    res.status(400).send("Unable to find user in the db");
   }
 });
 
@@ -57,7 +57,7 @@ router.post("/update-user", async (req, res) => {
     await signup.findOneAndUpdate({ _id: req.query.id }, req.body);
     res.redirect("/all-users");
   } catch (err) {
-    res.status(404).send("Unable to update user in the database");
+    res.status(404).send("Unable to update user in the db");
   }
 });
 
@@ -67,7 +67,7 @@ router.post("/delete-user", async (req, res) => {
     await signup.deleteOne({ _id: req.body.id });
     res.redirect("back");
   } catch (err) {
-    res.status(400).send("Unable to delete user in the database");
+    res.status(400).send("Unable to delete user in the db");
   }
 });
 

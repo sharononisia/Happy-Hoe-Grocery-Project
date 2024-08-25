@@ -17,10 +17,10 @@ router.post(
     // Redirect based on the user's role
     if (req.user.role === "manager") {
       // res.send("Welcome to the Manager's dashboard!");
-      res.redirect("/manager-dashboard");
+      res.redirect("/manager");
     } else if (req.user.role === "sales-agent") {
       // res.send("Welcome to the Sales Agent's dashboard!");
-      res.redirect("/sales-agent-dashboard");
+      res.redirect("/sales_agentdashboard");
     } else {
       res.send("User with that role does not exist in the system");
     }

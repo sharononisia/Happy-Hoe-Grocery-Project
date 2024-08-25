@@ -9,7 +9,7 @@ router.get("/logout", (req, res) => {
         if (err) {
           return res.status(500).send("Error logging out");
         }
-        res.redirect("/");
+        res.redirect("/login");
       });
     } else {
       res.send("you do not have an on going session");

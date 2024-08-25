@@ -7,17 +7,17 @@ head
 .container
   h1 Record Sales
   // Form for generating a receipt
-  form#receiptForm(action='' method='POST')
+  form#receiptForm(action='/thesale' method='POST')
     label(for='salesAgent') The Sales Agent Name:
     input#salesAgent(type='text' name='salesAgent')
     label(for='transactionId') Transaction ID:
     input#transactionId(type='text' name='transactionId')
     label(for='date') Date and Time:
-    input#date(type='datetime-local' name='datetime')
+    input#date(type='datetime-local' name='date')
     label(for='customerName') Customer Name:
     input#customerName(type='text' name='customerName')
     label(for='items') Items (format: Item, Quantity, Price):
     textarea#items(name='items' rows='5')
     button(type='button' onclick='generateReceipt()') Generate Receipt
-    a(href='/receipt.pug')
+    a(href='/bill')
 script(src='/js/gen.js')
