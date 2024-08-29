@@ -1,0 +1,56 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Goods sold on credit
+  link(rel='stylesheet' href='/css/credit.css')
+h1 Credit Sales
+form.goods-sold-form(action='/updatecredit?id='+credit._id method='POST')
+  label(for='buyer') Name of Buyer:
+  input#buyer(type='text' name='buyer' value = credit.buyer)
+  br
+  br
+  label(for='nin') National ID (NIN):
+  input#nin(type='text' name='nin' value = credit.nin)
+  br
+  br
+  label(for='location') Location:
+  input#location(type='text' name='location' value = credit.location)
+  br
+  br
+  label(for='contact') Contact:
+  input#contact(type='text' name='contact' value = credit.contact)
+  br
+  br
+  label(for='amountDue') Amount Due:
+  input#amountDue(type='number' name='amountDue' value = credit.amountDue)
+  br
+  br
+  label(for='salesAgentName') Sales Agent Name:
+  input#salesAgentName(type='text' name='salesAgentName' value = credit.salesAgentName)
+  br
+  br
+  label(for='dueDate') Due Date:
+  input#dueDate(type='date' name='dueDate' value = credit.dueDate)
+  br
+  br
+  label(for='theProduceName') The Produce Name:
+  input#theProduceName(type='text' name='theProduceName' value = credit.theProduceName)
+  br
+  br
+  label(for='typeOfProduce') Type of Produce:
+  select#typeOfProduce(name='typeOfProduce' value = credit.typeOfProduce)
+    option(value='' selected='') Select Produce Type
+    option(value='Grains') Grains
+    option(value='Legumes') Legumes
+  br
+  br
+  label(for='quantity') Tonnage in Kgs:
+  input#quantity(type='text' name='quantity' value = credit.quantity)
+  br
+  br
+  label(for='date') Date of Dispatch:
+  input#date(type='date' name='date' value = credit.date)
+  br
+  br
+  input(type='submit' value='Submit')

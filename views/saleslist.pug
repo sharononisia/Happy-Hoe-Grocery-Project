@@ -12,7 +12,7 @@ html(lang="en")
           th Transaction ID
           th Date and Time
           th Customer Name
-          th Items
+          th Items (Produce, Quantity, Price)
           th Action
           th
       tbody
@@ -20,15 +20,19 @@ html(lang="en")
         each sale in sales
           tr
             td #{sale.salesAgent}
-            td #{sale.transactionID}
-            td #{sale.datetime}
+            td #{sale.transactionId}
+            td #{sale.date}
             td #{sale.customerName}
             td #{sale.items}
-            td 
-              a(href="/update-sale/"+user._id class="edit-btn") Edit
+            //- td 
+              //- a(href="/update-sale/"+user._id class="edit-btn") Edit
             td
-              form(method="POST" action="/delete-sale")
-                input(type="hidden" Name="id" value=user._id )
-                button(class="delete-btn" type="submit") Delete
+              form(method="POST" action="/deleteSale")
+                input(type="hidden", placeholder="", name="id", value=sale._id )
+                button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
+            td 
+              a.btn.btn-secondary.btn-sm(href="/updatesale/"+sale._id) Update 
+            td 
+              a.btn.btn-secondary.btn-sm(href="/bill/"+sale._id) Receipt      
         else 
           p No sales yet

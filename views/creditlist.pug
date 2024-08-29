@@ -2,7 +2,7 @@ doctype html
 html
   head
     title Credit List
-    link(rel='stylesheet', href='/css/credit.css')
+    link(rel='stylesheet', href='/css/creditlist.css')
   body
     .container
       h2.text-center.mt-5.mb-4 All Credit List
@@ -22,26 +22,26 @@ html
             th(scope='col') Date of Dispatch
             th(scope='col') Action
         tbody
-          if credit-sales.length
-          each credit-sale in credit-sales
+          if credits.length
+           each credit in credits
              tr
-                td #{credit-sale.buyer}
-                td #{credit-sale.nin}
-                td #{credit-sale.location}
-                td #{credit-sale.contact}
-                td #{credit-sale.amountDue}
-                td #{credit-sale.salesAgentName}
-                td #{credit-sale.dueDate}
-                td #{credit-sale.theProduceName}
-                td #{credit-sale.typeOfProduce}
-                td #{credit-sale.quantity}
-                td #{credit-sale.date}
+                td #{credit.buyer}
+                td #{credit.nin}
+                td #{credit.location}
+                td #{credit.contact}
+                td #{credit.amountDue}
+                td #{credit.salesAgentName}
+                td #{credit.dueDate}
+                td #{credit.theProduceName}
+                td #{credit.typeOfProduce}
+                td #{credit.quantity}
+                td #{credit.date}
                 td
-                  a.btn.btn-primary.btn-sm(href='/updateCredit/' +credit-sale._id) Update
+                  a.btn.btn-primary.btn-sm(href='/updateCredit/' +credit._id) Update
                 td
                   form(method="POST" action='/deleteCredit')
-                    input(type="hidden", placeholder="", name="id", value=credit-sale.id)
+                    input(type="hidden", placeholder="", name="id", value=credit.id)
                     button.btn.btn-danger.btn-sm(type="submit") Delete
-            else
+          else
                tr
                  td(colspan="12", class="text-center") No Credit Sale yet :()

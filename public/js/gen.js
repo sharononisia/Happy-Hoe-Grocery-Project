@@ -29,7 +29,7 @@ function generateReceipt() {
         // Store data in localStorage
         localStorage.setItem('receiptData', JSON.stringify({ salesAgent, date, customerName, transactionId, items, tax, total, subtotal }));
         // Redirect to receipt page
-        window.location.href = 'receipt';
+        window.location.href = 'bill';
     } else {
         alert('Please fill out all fields correctly.');
     }

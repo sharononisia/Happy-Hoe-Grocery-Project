@@ -2,7 +2,7 @@ doctype html
 html(lang="en")
   head
     title Users
-    Link(rel="stylesheet" href="/css/all-users.css")     
+    Link(rel="stylesheet" href="/css/allusers.css")     
   body
     h1 Users List
     table
@@ -22,11 +22,11 @@ html(lang="en")
             td #{user.email}
             td #{user.role}
             td #{user.branch}
-            td 
-              a(href="/update-user/"+user._id class="edit-btn") Edit
             td
               form(method="POST" action="/delete-user")
-                input(type="hidden" placeholder="" Name="id" value=user._id )
-                button(class="delete-btn" type="submit") Delete
+                input(type="hidden", placeholder="", Name="id", value=user._id )
+                button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
+            td 
+               a.btn.btn-secondary.btn-sm(href="update-user/"+user._id) Edit
         else 
           p no users signed up yet

@@ -36,6 +36,7 @@ const cerealRoutes = require('./routes/cerealRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 
 
+
 //instantiations
 const app = express();
 const port = 5000;
@@ -106,8 +107,6 @@ app.post('/logout', (req, res) => {
     });
   }
 });
-
-
 
 //bootstraping a server
 app.listen(port, () => console.log(`listening on port ${port}`)); // string interporation

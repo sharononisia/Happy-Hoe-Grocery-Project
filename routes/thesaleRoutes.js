@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-//const connectEnsureLogin = require('connect-ensure-login');
+const connectEnsureLogin = require('connect-ensure-login');
 
 // import model
 const Sale = require('../models/sale');
 
-router.get('/thesale',  (req, res) => {
+router.get('/thesale', (req, res) => {
     res.render('sale', { title: "Sale" });
 })
 
@@ -13,19 +13,19 @@ router.post('/thesale', async (req, res) => {
     try {
         const newSale = new Sale(req.body);
         await newSale.save();
-        res.redirect('/receipt');
+        res.redirect('/saleslist');
     } catch (error) {
         res.status(404).send("unable to save sales to db");
         console.log("Error saving sales", error);
     }
 
 })
-router.get('/Sale-list', async (req, res) => {
+router.get('/saleslist', async (req, res) => {
     try {
-        const salesItems = await Sale.find().sort({ $natural: -1 }); //this is for sorting the new produce up
+        const Items = await Sale.find().sort({ $natural: -1 }); //this is for sorting the new 
         res.render('saleslist', {
             title: "Sales List",
-            sales: saleItems,
+            sales: Items,
 
         });
 
@@ -37,10 +37,10 @@ router.get('/Sale-list', async (req, res) => {
 });
 
 // get sales update form
-router.get("/updateSales/:id", async (req, res) => {
+router.get("/updatesale/:id", async (req, res) => {
     try {
         const item = await Sale.findOne({ _id: req.params.id });
-        res.render("updateSale", {
+        res.render("updatesale", {
             title: "Update Sale",
             sale: item,
         });
@@ -49,26 +49,25 @@ router.get("/updateSales/:id", async (req, res) => {
     }
 });
 
-router.get("/updateSale/:id", async (req, res) => {
+router.get("/updatesale/:id", async (req, res) => {
     try {
         const item = await Sale.findOne({ _id: req.params.id })
         res.render("updatesale", {
             sale: item,
             title: "Update Sale",
         })
-    } catch(error) {
+    } catch (error) {
         res.status(400).send("Unable to find item in the database");
     }
-    
-    
+
 });
 
 
 // post updated sales
-router.post("/updateSale", async (req, res) => {
+router.post("/updatesale", async (req, res) => {
     try {
         await Sale.findOneAndUpdate({ _id: req.query.id }, req.body);
-        res.redirect("/Sale-list");
+        res.redirect("/saleslist");
     } catch (err) {
         res.status(404).send("Unable to update item in the database");
     }
@@ -77,11 +76,30 @@ router.post("/updateSale", async (req, res) => {
 // delete Sale
 router.post("/deleteSale", async (req, res) => {
     try {
-    await Sale.deleteOne({ _id: req.body.id });
-    res.redirect("back");
+        await Sale.deleteOne({ _id: req.body.id });
+        res.redirect("back");
     } catch (err) {
-    res.status(400).send("Unable to delete item in the database");
+        res.status(400).send("Unable to delete item in the database");
     }
-    });
+});
+
+// generate receipt
+router.get("/bill/:id", async (req, res) => {
+    try {
+        const sale = await Sale.findOne({ _id: req.params.id })
+            .populate("produceName", "produceName")
+            .populate("saleAgent", "name");
+        console.log("my sale", sale)
+        // const formattedDate = formatDate(sale.saledate);
+        res.render("receipt", {
+            sales,
+            // formattedDate,
+            title: "Receipt"
+        });
+    } catch (error) {
+        res.status(400).send("The item isn't in the database")
+    }
+
+})
 
 module.exports = router;

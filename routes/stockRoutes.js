@@ -59,8 +59,7 @@ router.get("/updateProduce/:id", async (req, res) => {
     } catch(error) {
         res.status(400).send("Unable to find item in the database");
     }
-    
-    
+      
 });
 
 

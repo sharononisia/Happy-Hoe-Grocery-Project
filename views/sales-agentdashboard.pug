@@ -1,61 +1,61 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Responsive Dashboard with Sidebar
-  link(rel='stylesheet' href='../bootstrap-5.3.3-dist/css/bootstrap.css')
-  link(rel='stylesheet' href='/css/dashboard.css')
-#sidebar
-  button#toggle-btn(aria-label='Toggle sidebar') &#x2630;
-  nav
-    ul
-      li
-        a(href='home') Home
-      li
-        a(href='thesale') Sales
-      li
-        a(href='credit-sale') Credit Sales
-      li
-        a.btn.btn-dark.btn-block(href="#" onclick="document.getElementById('logout-form').submit();") Log out
-        form#logout-form(method="post" action='/logout' style="display:none;")  
+//- doctype html
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   title Responsive Dashboard with Sidebar
+//-   link(rel='stylesheet' href='../bootstrap-5.3.3-dist/css/bootstrap.css')
+//-   link(rel='stylesheet' href='/css/salesagent-dashboard.css')
+//- #sidebar
+//-   button#toggle-btn(aria-label='Toggle sidebar') &#x2630;
+//-   nav
+//-     ul
+//-       li
+//-         a(href='home') Home
+//-       li
+//-         a(href='thesale') Sales
+//-       li
+//-         a(href='credit-sale') Credit Sales
+//-       li
+//-         a.btn.btn-dark.btn-block(href="#" onclick="document.getElementById('logout-form').submit();") Log out
+//-         form#logout-form(method="post" action='/logout' style="display:none;")  
       
-#content
-  header
-    h1 Dashboard
-  main
-    .container
-      .row
-        .col-4
-          .stat-card
-            h3 Sales | Today 
-            .count
-              span 145
-              p 12% increase
-        .col-4
-          .stat-card
-            h3 Customers | Today 
-            .count
-              span 50
-              p 5% increase
-        .col-4
-          .stat-card
-            h3 Credit Sales | Today 
-            .count
-              span 10
-              p 3% increase
-    .dashboard
-      h1 KGL Grocery Ltd Sales Records
-      table#inventory-table
-        thead
-          tr
-            th Name of Produce
-            th Tonnage in Kgs
-            th Unit Price(Ugx)
-            th The amount paid(Ugx)
-            th Buyers Name
-            th The Sales Agent Name
-            th Date &amp; Time
-        tbody
-          // Table rows will be added here by JavaScript
-      button#load-data Sales Table
-script(src='/js/dashoard.js')
+//- #content
+//-     header
+//-       h1  Manager Dashboard
+//-     main
+//-     .container
+//-       .row
+//-         .col-4
+//-           .stat-card
+//-             h3 Produce Procured
+//-             .count
+//-               span 20,000
+//-               p 10% increase
+//-         .col-4
+//-           .stat-card
+//-             h3 Total Sales | Daily
+//-             .count
+//-               span 500,000 Ugx
+//-               p Records
+//-         .col-4
+//-           .stat-card
+//-             h3 KGL Credit Sales | Daily
+//-             .count
+//-               span 5
+//-               p 3% increase
+
+//-       h1 KGL Grocery Ltd Sales Records
+//-       table#inventory-table
+//-         thead
+//-           tr
+//-             th Name of Produce
+//-             th Tonnage in Kgs
+//-             th Unit Price(Ugx)
+//-             th The amount paid(Ugx)
+//-             th Buyers Name
+//-             th The Sales Agent Name
+//-             th Date &amp; Time
+//-         tbody
+//-           // Table rows will be added here by JavaScript
+//-       button#load-data Sales Table
+//- script(src='/js/dashoard.js')

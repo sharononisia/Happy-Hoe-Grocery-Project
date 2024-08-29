@@ -8,51 +8,51 @@ head
   form.produce-form(action='/updateproduce?id='+produce._id method='POST')
     h1 Produce Procured Records
     label(for='produce') Name of Produce:
-    input#produce(type='text' name='produce')
+    input#produce(type='text' name='produce' value = produce.produce)
     br
     br
     label(for='typeOfProduce') Type of Produce:
-    select#typeOfProduce(name='typeOfProduce')
+    select#typeOfProduce(name='typeOfProduce' value = produce.typeOfProduce)
       option(value='legumes' selected = produce.typeOfProduce === "legumes") Legumes
       option(value='grains' selected = produce.typeOfProduce === "grains") Grains
     br
     br
     label(for='date') Date:
-    input#date(type='date' name='date')
+    input#date(type='date' name='date' value =  produce.date)
     br
     br
     label(for='timeOfProduce') Time of Produce:
-    input#timeOfProduce(type='time' name='timeOfProduce')
+    input#timeOfProduce(type='time' name='timeOfProduce' value = produce.timeOfProduce)
     br
     br
     label(for='quantity') Tonnage in kg:
-    input#quantity(type='number' name='quantity')
+    input#quantity(type='number' name='quantity' value = produce.quantity)
     br
     br
     label(for='theCostPerKg') The Cost Per Kg:
-    input#theCostPerKg(type='number' name='theCostPerKg')
+    input#theCostPerKg(type='number' name='theCostPerKg' value = produce.theCostPerKg)
     br
     br
     label(for='theTotalCost') The Total Cost:
-    input#theTotalCost(type='number' name='theTotalCost')
+    input#theTotalCost(type='number' name='theTotalCost' value = produce.theTotalCost)
     br
     br
     label(for='nameOfDealer') Name of Dealer:
-    input#nameOfDealer(type='text' name='nameOfDealer')
+    input#nameOfDealer(type='text' name='nameOfDealer' value = produce.nameOfDealer)
     br
     br
     label(for='theBranchName') The Branch Name:
-    select#theBranchName(name='theBranchName')
+    select#theBranchName(name='theBranchName' value = produce.theBranchName)
       option(value='matugga' selected = produce.theBranchName === "Matugga") Matugga
       option(value='maganjo' selected = produce.theBranchName === "Maganjo") Maganjo
     br
     br
     label(for='contact') Contact:
-    input#contact(type='text' name='contact')
+    input#contact(type='text' name='contact' value = produce.contact)
     br
     br
     label(for='thePriceToBeSoldAt') The Price to be Sold at per Kg:
-    input#thePriceToBeSoldAt(type='text' name='thePriceToBeSoldAt')
+    input#thePriceToBeSoldAt(type='text' name='thePriceToBeSoldAt' value = produce.thePriceToBeSoldAt)
     br
     br
     input(type='submit' value='Submit')

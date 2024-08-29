@@ -62,7 +62,9 @@ form(action='' method='Post')
     .receipt-footer 
     .col-md-6
       button(onclick='window.print()') Print Receipt 
-      button(onclick="window.location.href='thesale'") Back
+      //- button(onclick="window.location. a(href='/thesale')") Back
+      li
+        a(href='thesale') Back
 script.
   document.addEventListener('DOMContentLoaded', () => {
   const receiptData = JSON.parse(localStorage.getItem('receiptData'));

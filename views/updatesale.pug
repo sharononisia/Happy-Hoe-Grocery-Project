@@ -6,16 +6,16 @@ head
   link(rel='stylesheet' href='/css/gen.css')
 .container
   h1 Record Sales
-  form#receiptForm(action='/thesale' method='POST')
+  form#receiptForm(action='/updatesale?id='+sale._id method='POST')
     label(for='salesAgent') The Sales Agent Name:
-    input#salesAgent(type='text' name='salesAgent')
+    input#salesAgent(type='text' name='salesAgent' value = sale.salesAgent)
     label(for='transactionId') Transaction ID:
-    input#transactionId(type='text' name='transactionId')
+    input#transactionId(type='text' name='transactionId' value = sale.transactionId)
     label(for='date') Date and Time:
-    input#date(type='datetime-local' name='date')
+    input#date(type='datetime-local' name='date' value = sale.date)
     label(for='customerName') Customer Name:
-    input#customerName(type='text' name='customerName')
+    input#customerName(type='text' name='customerName' value = sale.customerName)
     label(for='items') Items (format: Item, Quantity, Price):
-    textarea#items(name='items' rows='5')
+    textarea#items(name='items' rows='5' value = sale.items)
     button(type='submit') Submit
 script(src='/js/gen.js')
