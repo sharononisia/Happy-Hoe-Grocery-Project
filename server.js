@@ -31,7 +31,6 @@ const logoutRoutes = require('./routes/logoutRoutes');
 const creditsaleRoutes = require('./routes/creditsaleRoutes');
 const managerRoutes = require('./routes/managerRoutes');
 const sales_dashboardRoutes = require('./routes/sales_dashboardRoutes');
-const billRoutes = require('./routes/billRoutes');
 const cerealRoutes = require('./routes/cerealRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 
@@ -87,7 +86,6 @@ app.use("/", logoutRoutes);
 app.use("/", creditsaleRoutes);
 app.use("/", managerRoutes);
 app.use("/", sales_dashboardRoutes);
-app.use("/", billRoutes);
 app.use("/", cerealRoutes);
 app.use("/", homeRoutes);
 
@@ -107,6 +105,19 @@ app.post('/logout', (req, res) => {
     });
   }
 });
+
+app.get('/bill', (req, res) => {
+  // Example sale data, replace with actual data retrieval logic
+  const sale = {
+      salesAgent: 'John Doe',
+      transactionId: '123456',
+      Date: '2024-08-29',
+      customerName: 'Jane Smith'
+  };
+
+  res.render('receipt', { sale });
+});
+
 
 //bootstraping a server
 app.listen(port, () => console.log(`listening on port ${port}`)); // string interporation

@@ -24,8 +24,6 @@ html(lang="en")
             td #{sale.date}
             td #{sale.customerName}
             td #{sale.items}
-            //- td 
-              //- a(href="/update-sale/"+user._id class="edit-btn") Edit
             td
               form(method="POST" action="/deleteSale")
                 input(type="hidden", placeholder="", name="id", value=sale._id )

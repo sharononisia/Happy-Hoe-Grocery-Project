@@ -6,21 +6,21 @@ const router = express.Router();
 const Credit = require('../models/credit');
 
 router.get('/creditsale',  (req, res) => {
-    res.render('credit-sale', { title: "Credit" });
+    res.render('credit_sale', { title: "Credit" });
 })
 
 router.post('/creditsale', async (req, res) => {
     try {
         const newCredit = new Credit(req.body);
         await newCredit.save();
-        res.redirect('/Credit-list');
+        res.redirect('/Creditlist');
     } catch (error) {
         res.status(404).send("unable to save credit sales to db");
         console.log("Error saving credit sales", error);
     }
 
 })
-router.get('/Credit-list', async (req, res) => {
+router.get('/Creditlist', async (req, res) => {
     try {
         const creditItems = await Credit.find().sort({ $natural: -1 }); //this is for sorting the new credit sale up
         res.render('creditlist', {

@@ -8,6 +8,8 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    background-image: url(/images/d.jpg);
+    background-size: cover;
 }
 
 h2 {

@@ -12,13 +12,13 @@ router.get("/", (req, res) => {
 // // manager route
 // connectEnsureLogin.ensureLoggedIn(),
 // router.get("/manager", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-//   // res.send("Welcome to HHG Management System");
+//   // res.send("Welcome to KGL Management System");
 //   res.render("manager-dashboard");
 // });
 
 // // // sales agent route
 // router.get("/sales_dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-//   // res.send("Welcome to HHG Management System");
+//   // res.send("Welcome to KGL Management System");
 //   res.render("sales-agentdashboard");
 // });
 

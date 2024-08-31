@@ -16,6 +16,6 @@ head
     label(for='customerName') Customer Name:
     input#customerName(type='text' name='customerName' value = sale.customerName)
     label(for='items') Items (format: Item, Quantity, Price):
-    textarea#items(name='items' rows='5' value = sale.items)
+    input#items(name='items' value = sale.items rows='5' )
     button(type='submit') Submit
 script(src='/js/gen.js')

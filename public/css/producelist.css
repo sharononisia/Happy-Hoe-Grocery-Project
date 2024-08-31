@@ -26,17 +26,17 @@ td {
 }
 
 th {
-    background-color: #04fe10;
+    background-color: #48A878;
     color: white;
 }
 
 tr:hover {
-    background-color: #04fe10;
+    background-color: #99CA9C;
 }
 
 .update-btn {
     padding: 4px 12px;
-    background-color: #04fe10;
+    background-color: #48A878;;
     color: white;
     border: none;
     border-radius: 4px;

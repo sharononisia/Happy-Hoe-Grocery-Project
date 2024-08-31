@@ -83,8 +83,13 @@ router.post("/deleteSale", async (req, res) => {
     }
 });
 
+
 // generate receipt
-router.get("/bill/:id", async (req, res) => {
+router.get('/receipt', (req, res) => {
+    res.render('receipt', { title: "Receipt" });
+})
+
+router.get("/receipt/:id", async (req, res) => {
     try {
         const sale = await Sale.findOne({ _id: req.params.id })
             .populate("produceName", "produceName")
@@ -92,7 +97,7 @@ router.get("/bill/:id", async (req, res) => {
         console.log("my sale", sale)
         // const formattedDate = formatDate(sale.saledate);
         res.render("receipt", {
-            sales,
+            sale,
             // formattedDate,
             title: "Receipt"
         });
@@ -101,5 +106,7 @@ router.get("/bill/:id", async (req, res) => {
     }
 
 })
+
+
 
 module.exports = router;

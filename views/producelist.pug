@@ -22,7 +22,7 @@ html
             th(scope='col') The Price to be Sold at per Kg
             th(scope='col') Action
         tbody
-          if produces.length
+          if produces.length 
             each produce in produces
               tr
                 td #{produce.produce}
@@ -37,7 +37,7 @@ html
                 td #{produce.contact}
                 td #{produce.thePriceToBeSoldAt}
                 td
-                  a.btn.btn-primary.btn-sm(href='/thesale') Make Sale
+                  a.btn.btn-secondary.btn-sm(href='/thesale') Make Sale
                 td
                   a.btn.btn-primary.btn-sm(href='/updateProduce/'+produce._id) Update
                 td
@@ -45,7 +45,7 @@ html
                     input(type="hidden", placeholder="", name="id", value=produce._id)
                     button.btn.btn-danger.btn-sm(type="submit") Delete
           else
-                tr
+            tr
                 td(colspan="8", class="text-center") No produce yet :()
 
            

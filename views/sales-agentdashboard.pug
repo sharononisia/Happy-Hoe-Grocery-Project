@@ -3,7 +3,7 @@
 //-   meta(charset='UTF-8')
 //-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
 //-   title Responsive Dashboard with Sidebar
-//-   link(rel='stylesheet' href='../bootstrap-5.3.3-dist/css/bootstrap.css')
+//-   link(rel='stylesheet' href='/bootstrap-5.3.3-dist/css/bootstrap.css')
 //-   link(rel='stylesheet' href='/css/salesagent-dashboard.css')
 //- #sidebar
 //-   button#toggle-btn(aria-label='Toggle sidebar') &#x2630;
@@ -12,9 +12,9 @@
 //-       li
 //-         a(href='home') Home
 //-       li
-//-         a(href='thesale') Sales
+//-         a(href='thesale') Make Sales
 //-       li
-//-         a(href='credit-sale') Credit Sales
+//-         a(href='creditsale') Credit Sales
 //-       li
 //-         a.btn.btn-dark.btn-block(href="#" onclick="document.getElementById('logout-form').submit();") Log out
 //-         form#logout-form(method="post" action='/logout' style="display:none;")  
@@ -59,3 +59,32 @@
 //-           // Table rows will be added here by JavaScript
 //-       button#load-data Sales Table
 //- script(src='/js/dashoard.js')
+
+
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sales Agent 
+  Link(rel="stylesheet" href="/css/salesagent-dashboard.css")  
+body
+nav.horizontal-navbar
+  a(href='home') Home
+  a(href='thesale') Make Sales
+  a(href='creditsale') Make Credit sales
+  a(href='stock') Purchase 
+  .search-container
+    form(action='#' onsubmit='return false;')
+      input#search-input(type='text' placeholder='Search..' name='search')
+      button(type='submit' onclick='performSearch()') Search
+nav.vertical-navbar
+  a(href='/Pro-list') Produce List
+  a(href='Creditlist') Credit Sales List
+  a(href='saleslist') Sales List
+  a(href='logout') Logout
+.main-content
+  h1 Welcome to the Page
+  p
+    | This is the main content area. The horizontal navbar is at the top, and the vertical navbar is on the left.
+script(src='/js/salesdashboard.js')
+ 

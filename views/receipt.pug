@@ -31,17 +31,21 @@ head
     .receipt-items th {
     background-color: #f4f4f4;
     }
-form(action='' method='Post')
+form(action='/receipt?id='+sale method='Post')
   .receipt-container
     .receipt-header
       h1 KGL GROCERY LIMITED
       h2 Receipt
-      p#salesAgent
-      p#transactionId
-      p#receiptDate
-      p#customerName
+      //- if sale
+      p Sales Agent: #{sale.salesAgent}
+      p Transaction ID: #{sale.transactionId}
+      p Receipt date: #{sale.Date}
+      p Customer Name: #{sale.customerName}
+     else
+      p Error: sale information not available
     .receipt-items
       table
+      p Items: #{sale.items}
         thead
           tr
             th Item
@@ -59,6 +63,7 @@ form(action='' method='Post')
           tr
             td(colspan='3') Total
             td#grandTotal
+   
     .receipt-footer 
     .col-md-6
       button(onclick='window.print()') Print Receipt 
