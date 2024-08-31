@@ -20,7 +20,7 @@ router.post(
       res.redirect("/manager");
     } else if (req.user.role === "sales-agent") {
       // res.send("Welcome to the Sales Agent's dashboard!");
-      res.redirect("/sales_agentdashboard");
+      res.redirect("/sales_dashboard");
     } else {
       res.send("User with that role does not exist in the system");
     }

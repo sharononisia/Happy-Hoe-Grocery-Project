@@ -1,51 +1,54 @@
-doctype html
-html
-  head
-    title Produce List
-    link(rel='stylesheet', href='/css/producelist.css')
-  body
-    .container
-      h2.text-center.mt-5.mb-4 All Produce
-      table.table.table-striped
-        thead
-          tr
-            th(scope='col') Produce Name
-            th(scope='col') Type of Produce
-            th(scope='col') Date
-            th(scope='col') Time of Produce 
-            th(scope='col') Tonnage in Kg
-            th(scope='col') The Cost Per Kg
-            th(scope='col') The Total Cost
-            th(scope='col') Name of Dealer
-            th(scope='col') Branch Name
-            th(scope='col') Dealer's Contact
-            th(scope='col') The Price to be Sold at per Kg
-            th(scope='col') Action
-        tbody
-          if produces.length 
-            each produce in produces
-              tr
-                td #{produce.produce}
-                td #{produce.typeOfProduce}
-                td #{produce.date}
-                td #{produce.timeOfProduce}
-                td #{produce.quantity}
-                td #{produce.theCostPerKg}
-                td #{produce.theTotalCost}
-                td #{produce.nameOfDealer}
-                td #{produce.theBranchName}
-                td #{produce.contact}
-                td #{produce.thePriceToBeSoldAt}
-                td
-                  a.btn.btn-secondary.btn-sm(href='/thesale') Make Sale
-                td
-                  a.btn.btn-primary.btn-sm(href='/updateProduce/'+produce._id) Update
-                td
-                  form(method="POST" action='/deleteProduce')
-                    input(type="hidden", placeholder="", name="id", value=produce._id)
-                    button.btn.btn-danger.btn-sm(type="submit") Delete
-          else
-            tr
-                td(colspan="8", class="text-center") No produce yet :()
+extends sales-agentdashboard.pug
 
-           
+block content
+  doctype html
+  html
+    head
+      title Produce List
+      link(rel='stylesheet', href='/css/producelist.css')
+    body
+      .container
+        h2.text-center.mt-5.mb-4 All Produce
+        table.table.table-striped
+          thead
+            tr
+              th(scope='col') Produce Name
+              th(scope='col') Type of Produce
+              th(scope='col') Date
+              th(scope='col') Time of Produce 
+              th(scope='col') Tonnage in Kg
+              th(scope='col') The Cost Per Kg
+              th(scope='col') The Total Cost
+              th(scope='col') Name of Dealer
+              th(scope='col') Branch Name
+              th(scope='col') Dealer's Contact
+              th(scope='col') The Price to be Sold at per Kg
+              th(scope='col') Action
+          tbody
+            if produces.length 
+              each produce in produces
+                tr
+                  td #{produce.produce}
+                  td #{produce.typeOfProduce}
+                  td #{produce.date}
+                  td #{produce.timeOfProduce}
+                  td #{produce.quantity}
+                  td #{produce.theCostPerKg}
+                  td #{produce.theTotalCost}
+                  td #{produce.nameOfDealer}
+                  td #{produce.theBranchName}
+                  td #{produce.contact}
+                  td #{produce.thePriceToBeSoldAt}
+                  td
+                    a.btn.btn-secondary.btn-sm(href='/thesale') Make Sale
+                  td
+                    a.btn.btn-primary.btn-sm(href='/updateProduce/'+produce._id) Update
+                  td
+                    form(method="POST" action='/deleteProduce')
+                      input(type="hidden", placeholder="", name="id", value=produce._id)
+                      button.btn.btn-danger.btn-sm(type="submit") Delete
+            else
+              tr
+                  td(colspan="8", class="text-center") No produce yet :()
+
+            

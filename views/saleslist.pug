@@ -1,36 +1,40 @@
-doctype html
-html(lang="en")
-  head
-    title Sales
-    Link(rel="stylesheet" href="/css/saleslist.css")     
-  body
-    h1 Sales List
-    table
-      thead
-        tr
-          th The Sales Agent Name
-          th Transaction ID
-          th Date and Time
-          th Customer Name
-          th Items (Produce, Quantity, Price)
-          th Action
-          th
-      tbody
-        if sales.length 
-        each sale in sales
+extends sales-agentdashboard.pug
+
+block content 
+  
+  doctype html
+  html(lang="en")
+    head
+      title Sales
+      Link(rel="stylesheet" href="/css/saleslist.css")     
+    body
+      h1 Sales List
+      table
+        thead
           tr
-            td #{sale.salesAgent}
-            td #{sale.transactionId}
-            td #{sale.date}
-            td #{sale.customerName}
-            td #{sale.items}
-            td
-              form(method="POST" action="/deleteSale")
-                input(type="hidden", placeholder="", name="id", value=sale._id )
-                button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
-            td 
-              a.btn.btn-secondary.btn-sm(href="/updatesale/"+sale._id) Update 
-            td 
-              a.btn.btn-secondary.btn-sm(href="/bill/"+sale._id) Receipt      
-        else 
-          p No sales yet
+            th The Sales Agent Name
+            th Transaction ID
+            th Date and Time
+            th Customer Name
+            th Items (Produce, Quantity, Price)
+            th Action
+            th
+        tbody
+          if sales.length 
+          each sale in sales
+            tr
+              td #{sale.salesAgent}
+              td #{sale.transactionId}
+              td #{sale.date}
+              td #{sale.customerName}
+              td #{sale.items}
+              td
+                form(method="POST" action="/deleteSale")
+                  input(type="hidden", placeholder="", name="id", value=sale._id )
+                  button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
+              td 
+                a.btn.btn-secondary.btn-sm(href="/updatesale/"+sale._id) Update 
+              td 
+                a.btn.btn-secondary.btn-sm(href="/bill/"+sale._id) Receipt      
+          else 
+            p No sales yet

@@ -1,47 +1,51 @@
-doctype html
-html
-  head
-    title Credit List
-    link(rel='stylesheet', href='/css/creditlist.css')
-  body
-    .container
-      h2.text-center.mt-5.mb-4 All Credit List
-      table.table.table-striped
-        thead
-          tr
-            th(scope='col') Name of Buyer
-            th(scope='col') National ID (NIN)
-            th(scope='col') Location
-            th(scope='col') Contact
-            th(scope='col') Amount Due
-            th(scope='col') Sales Agent Name
-            th(scope='col') Due Date
-            th(scope='col') The Produce Name
-            th(scope='col') Type of Produce
-            th(scope='col') Tonnage in Kgs
-            th(scope='col') Date of Dispatch
-            th(scope='col') Action
-        tbody
-          if credits.length
-           each credit in credits
-             tr
-                td #{credit.buyer}
-                td #{credit.nin}
-                td #{credit.location}
-                td #{credit.contact}
-                td #{credit.amountDue}
-                td #{credit.salesAgentName}
-                td #{credit.dueDate}
-                td #{credit.theProduceName}
-                td #{credit.typeOfProduce}
-                td #{credit.quantity}
-                td #{credit.date}
-                td
-                  a.btn.btn-primary.btn-sm(href='/updateCredit/' +credit._id) Update
-                td
-                  form(method="POST" action='/deleteCredit')
-                    input(type="hidden", placeholder="", name="id", value=credit.id)
-                    button.btn.btn-danger.btn-sm(type="submit") Delete
-          else
-               tr
-                 td(colspan="12", class="text-center") No Credit Sale yet :()
+extends sales-agentdashboard.pug
+
+block content 
+ 
+  doctype html
+  html
+    head
+      title Credit List
+      link(rel='stylesheet', href='/css/creditlist.css')
+    body
+      .container
+        h2.text-center.mt-5.mb-4 All Credit List
+        table.table.table-striped
+          thead
+            tr
+              th(scope='col') Name of Buyer
+              th(scope='col') National ID (NIN)
+              th(scope='col') Location
+              th(scope='col') Contact
+              th(scope='col') Amount Due
+              th(scope='col') Sales Agent Name
+              th(scope='col') Due Date
+              th(scope='col') The Produce Name
+              th(scope='col') Type of Produce
+              th(scope='col') Tonnage in Kgs
+              th(scope='col') Date of Dispatch
+              th(scope='col') Action
+          tbody
+            if credits.length
+            each credit in credits
+              tr
+                  td #{credit.buyer}
+                  td #{credit.nin}
+                  td #{credit.location}
+                  td #{credit.contact}
+                  td #{credit.amountDue}
+                  td #{credit.salesAgentName}
+                  td #{credit.dueDate}
+                  td #{credit.theProduceName}
+                  td #{credit.typeOfProduce}
+                  td #{credit.quantity}
+                  td #{credit.date}
+                  td
+                    a.btn.btn-primary.btn-sm(href='/updateCredit/' +credit._id) Update
+                  td
+                    form(method="POST" action='/deleteCredit')
+                      input(type="hidden", placeholder="", name="id", value=credit.id)
+                      button.btn.btn-danger.btn-sm(type="submit") Delete
+            else
+                tr
+                  td(colspan="12", class="text-center") No Credit Sale yet :()
