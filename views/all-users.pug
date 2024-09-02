@@ -1,32 +1,40 @@
-doctype html
-html(lang="en")
-  head
-    title Users
-    Link(rel="stylesheet" href="/css/allusers.css")     
-  body
-    h1 Users List
-    table
-      thead
-        tr
-          th Staff Name
-          th Email Address
-          th Role
-          th Branch
-          th Action
-          th
-      tbody
-        if users.length 
-        each user in users
+extends sales-agentdashboard.pug
+
+block content 
+ 
+ 
+  doctype html
+  html(lang="en")
+    head
+      title Users
+      link(rel="stylesheet" href="/css/allusers.css")
+    body
+      h1 Users List
+      table
+        thead
           tr
-            td #{user.username}
-            td #{user.email}
-            td #{user.role}
-            td #{user.branch}
-            td
-              form(method="POST" action="/delete-user")
-                input(type="hidden", placeholder="", Name="id", value=user._id )
-                button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
-            td 
-               a.btn.btn-secondary.btn-sm(href="update-user/"+user._id) Edit
-        else 
-          p no users signed up yet
+            th Staff Name
+            th Email Address
+            th Role
+            th Branch
+            th Action
+            th
+        tbody
+          if signups && signups.length
+            each signup in signups
+              tr
+                td #{signup.username}
+                td #{signup.email}
+                td #{signup.role}
+                td #{signup.branch}
+                td
+                  form(method="POST" action="/delete-user")
+                    input(type="hidden", placeholder="" name="id", value=signup._id)
+                    button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
+                td
+                  a.btn.btn-primary.btn-sm(href="/update-user/"+signup._id) Edit
+                td
+                  a.btn.btn-success.btn-sm(href="/register"+signup._id) Add
+          else
+            tr
+              td(colspan="6") No users signed up yet

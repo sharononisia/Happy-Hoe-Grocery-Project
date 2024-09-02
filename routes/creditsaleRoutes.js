@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-//const connectEnsureLogin = require('connect-ensure-login');
+const connectEnsureLogin = require('connect-ensure-login');
 
 // import model
 const Credit = require('../models/credit');
@@ -13,14 +13,14 @@ router.post('/creditsale', async (req, res) => {
     try {
         const newCredit = new Credit(req.body);
         await newCredit.save();
-        res.redirect('/Creditlist');
+        res.redirect('/creditlist');
     } catch (error) {
         res.status(404).send("unable to save credit sales to db");
         console.log("Error saving credit sales", error);
     }
 
 })
-router.get('/Creditlist', async (req, res) => {
+router.get('/creditlist', async (req, res) => {
     try {
         const creditItems = await Credit.find().sort({ $natural: -1 }); //this is for sorting the new credit sale up
         res.render('creditlist', {
@@ -68,7 +68,7 @@ router.get("/updateCredit/:id", async (req, res) => {
 router.post("/updateCredit", async (req, res) => {
     try {
         await Credit.findOneAndUpdate({ _id: req.query.id }, req.body);
-        res.redirect("/Credit-list");
+        res.redirect("/creditlist");
     } catch (err) {
         res.status(404).send("Unable to update item in the database");
     }

@@ -69,4 +69,11 @@ body {
     margin-top: 50px;
     padding: 20px;
     }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #050404;
+        color: #f4f4f4;
+    }
     

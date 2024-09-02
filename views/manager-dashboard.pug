@@ -1,88 +1,35 @@
-//- doctype html
-//- head
-//-   meta(charset='UTF-8')
-//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-//-   title Responsive Dashboard with Sidebar
-//-   link(rel='stylesheet', href='/bootstrap-5.3.3-dist/css/bootstrap.css')
-//-   link(rel='stylesheet', href='/css/manager-dashboard.css')
-//- #sidebar
-//-   button#toggle-btn(aria-label='Toggle sidebar') &#x2630;
-//-   nav
-//-     ul
-//-       li
-//-         a(href='home') Home
-//-       li
-//-         a(href='stock') Produce Procured
-//-       li
-//-         a(href='cereal') Products
-//-       li
-//-         a(href='creditsale') Credit Sale
-//-       li
-//-         a(href='thesale') Make Sales
-//-       li
-//-         a(href='') Report
-//-       li
-//-         a.btn.btn-dark.btn-block(href="#" onclick="document.getElementById('logout-form').submit();") Log out
-//-         form#logout-form(method="post" action='/logout' style="display:none;")  
 
-//- #content
-//-   header
-//-     h1  Manager Dashboard
-//-   main
-//-    .container
-//-     .row
-//-       .col-4
-//-         .stat-card
-//-           h3 Produce Procured
-//-           .count
-//-             span 20,000
-//-             p 10% increase
-//-       .col-4
-//-         .stat-card
-//-           h3 Total Sales | Daily
-//-           .count
-//-             span 500,000 Ugx
-//-             p Records
-//-       .col-4
-//-         .stat-card
-//-           h3 KGL Credit Sales | Daily
-//-           .count
-//-             span 5
-//-             p 3% increase
 
-//- script(src='/js/manager-dashboard.js')
 
- doctype html
+doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Sales Dashboard
-  link(rel='stylesheet' href='/css/manager-dashboard.css')
-header
-  nav.navbar
-    .navbar-brand Sales Dashboard
-    ul.navbar-nav
-      li.nav-item
-        a(href='#') Home
-      li.nav-item
-        a(href='#') Reports
-      li.nav-item
-        a(href='#') Settings
-    .search-bar
-      input#search(type='text' placeholder='Search...')
-main
-  .dashboard
-    .card
-      h3 Total Sales
-      p#total-sales $0
-    .card
-      h3 Number of Transactions
-      p#num-transactions 0
-    .card
-      h3 Average Sale Value
-      p#avg-sale-value $0
-    .card
-      h3 Top Sales Agent
-      p#top-sales-agent None
+  title Manager
+  Link(rel="stylesheet" href="/css/manager-dashboard.css")  
+body
+nav.horizontal-navbar
+  a(href='home') Home
+  a(href='/signup') Add Users
+  a(href='creditsale') Make Credit sales
+  a(href='stock') Purchase 
+  .search-container
+    form(action='#' onsubmit='return false;')
+      input#search-input(type='text' placeholder='Search..' name='search')
+      button(type='submit' onclick='performSearch()') Search
+nav.vertical-navbar
+  a(href='/Pro-list') Produce List
+  a(href='all-users') All Users List
+  a(href='Creditlist') Credit Sales List
+  a(href='reports') Report
+  a(href='logout') Logout
+.main-content
+  h1 Welcome to KGL Grocery Limited Manager's Dashboard.
+    
+  main.content
+      block content
+   
 script(src='/js/manager-dashboard.js')
+ 
+
 

@@ -33,8 +33,8 @@ block content
                   input(type="hidden", placeholder="", name="id", value=sale._id )
                   button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
               td 
-                a.btn.btn-secondary.btn-sm(href="/updatesale/"+sale._id) Update 
+                a.btn.btn-primary.btn-sm(href="/updatesale/"+sale._id) Update 
               td 
-                a.btn.btn-secondary.btn-sm(href="/bill/"+sale._id) Receipt      
+                a.btn.btn-success.btn-sm(href="/bill/"+sale._id) Receipt      
           else 
             p No sales yet

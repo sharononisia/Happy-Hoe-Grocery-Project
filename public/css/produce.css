@@ -6,6 +6,9 @@
     margin: 80px auto;
     background-image: url();
     align-items: center;
+    background-color: #e1dd72;
+    align-content: center;
+    text-align: center; 
 
 }
 .produce-form{
@@ -21,16 +24,17 @@ h1 {
 input[type="submit"] {
     width: 50%;
     padding: 10px;
-    background-color: #04fe10;
+    background-color: #1b6535;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    text-align: center;
+
+
 }
 
 input[type="submit"]:hover {
-    background-color:#04fe10;
+    background-color:#1b6535;
 
 }
 

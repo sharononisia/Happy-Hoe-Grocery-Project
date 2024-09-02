@@ -9,7 +9,7 @@ html(lang="en")
     h2 Edit Details of the User
     form(action="/update-user?id"+user._id method="POST")
       input(type="text" name="username" placeholder="Your Name" required value=user.username)
-      input(type="email" name="email" placeholder="Email Address" required value=user.email disabled)
+      input(type="email" name="email" placeholder="Email Address" required value=user.email)
       select(name="role" required)
         option(value="manager" selected = user.role === "manager") Manager
         option(value="sales-agent" selected = user.role === "sales-agent") Sales Agent

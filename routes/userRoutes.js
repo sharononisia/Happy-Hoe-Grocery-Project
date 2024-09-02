@@ -4,23 +4,39 @@ const connectEnsureLogin = require("connect-ensure-login");
 
 const signup = require("../models/signup");
 
+router.get('/user', (req, res) => {
+  res.render('register', { title: "Register" });
+})
+
+router.post('/user', async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.redirect('/all-users');
+  } catch (error) {
+    res.status(404).send("unable to save user to db");
+    console.log("Error saving user", error);
+  }
+  
+})
+
 // // home route
 router.get("/", (req, res) => {
   res.render("index");
 });
 
-// // manager route
+// manager route
 // connectEnsureLogin.ensureLoggedIn(),
-// router.get("/manager", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-//   // res.send("Welcome to KGL Management System");
-//   res.render("manager-dashboard");
-// });
+router.get("/manager", (req, res) => {
+  // res.send("Welcome to KGL Management System");
+  res.render("manager-dashboard");
+});
 
-// // // sales agent route
-// router.get("/sales_dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-//   // res.send("Welcome to KGL Management System");
-//   res.render("sales-agentdashboard");
-// });
+// // sales agent route
+router.get("/sales_dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+  // res.send("Welcome to KGL Management System");
+  res.render("sales-agentdashboard");
+});
 
 // get all users
 router.get("/all-users", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
@@ -70,5 +86,6 @@ router.post("/delete-user", async (req, res) => {
     res.status(400).send("Unable to delete user in the db");
   }
 });
+
 
 module.exports = router;
