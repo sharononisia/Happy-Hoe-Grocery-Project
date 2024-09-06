@@ -31,27 +31,23 @@ head
     .receipt-items th {
     background-color: #f4f4f4;
     }
-form(action='/receipt?id='+sale method='Post')
+form(action='/sale?id='+sale method='Post')
   .receipt-container
     .receipt-header
       h1 KGL GROCERY LIMITED
       h2 Receipt
-      //- if sale
-      p Sales Agent: #{sale.salesAgent}
-      p Transaction ID: #{sale.transactionId}
-      p Receipt date: #{sale.Date}
-      p Customer Name: #{sale.customerName}
-     else
-      p Error: sale information not available
+      p#salesAgent
+      p#transactionId
+      p#receiptDate
+      p#customerName
     .receipt-items
       table
-      p Items: #{sale.items}
         thead
           tr
             th Item
             th Quantity (Kg)
-            th Unit Price
-            th Amount (Ugx)
+            th  Unit Price
+            th Total Amount (Ugx)
         tbody#receiptItemsBody
         tfoot
           tr
@@ -65,7 +61,6 @@ form(action='/receipt?id='+sale method='Post')
             td#grandTotal
    
     .receipt-footer 
-    .col-md-6
       button(onclick='window.print()') Print Receipt 
       //- button(onclick="window.location. a(href='/thesale')") Back
       li
@@ -96,3 +91,8 @@ script.
   document.body.innerHTML = '<h1>No receipt data found</h1>';
   }
   });
+
+
+
+
+

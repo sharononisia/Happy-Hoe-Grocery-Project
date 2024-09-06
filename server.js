@@ -34,6 +34,7 @@ const managerRoutes = require('./routes/managerRoutes');
 const sales_dashboardRoutes = require('./routes/sales_dashboardRoutes');
 const cerealRoutes = require('./routes/cerealRoutes');
 const homeRoutes = require('./routes/homeRoutes');
+const reportRoutes = require('./routes/reportRoutes');
 
 
 
@@ -89,6 +90,7 @@ app.use("/", managerRoutes);
 app.use("/", sales_dashboardRoutes);
 app.use("/", cerealRoutes);
 app.use("/", homeRoutes);
+app.use("/", reportRoutes);
 
 app.get("*", (req, res) => {
   res.send("Error! This page does not exist");

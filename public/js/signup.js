@@ -5,7 +5,7 @@ function validateForm() {
     var branch = document.getElementById('branch').value;
     var role = document.getElementById('role').value;
 
-    // Validate first name and last name (should not contain numbers)
+    // Validate user name (should not contain numbers)
     var namePattern = /^[a-zA-Z]+$/;
     if (!namePattern.test(username)) {
         alert("User name must contain only letters.");
@@ -33,3 +33,53 @@ function validateForm() {
 
     return true; // Form is valid
 } signup
+
+
+
+
+
+// const signup= document.querySelector(".register-btn");
+
+// signup.addEventListener("click", (event)=> {
+// event.preventDefault();
+
+// const username = document.getElementById("username");
+// const email = document.getElementById("email");
+// const branch = document.getElementById("branch");
+// const password = document.getElementById("password");
+
+// if (!username){
+//     alert("Please enter your username");
+//     return;
+// }
+
+// if (!email){
+//     alert("Please enter your email");
+//     return;
+// }
+// if(!ValidateEmail(email)){
+//     alert("Please enter a valid email address");
+//     return;
+// }
+
+// if (!password){
+//     alert("Please enter your password");
+//     return;
+// }
+// if (!validatePassword(password)){
+//     alert("Please enter a valid password. It should be at least 8 characters long and contain a combination of uppercase letters, lowercase letters, numbers, and special characters");
+//     return;
+// }
+// function validateEmail(email) {
+//     const re =/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+//     return re.test(email);
+// }
+
+// function validatePassword(password) {
+//     const re = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/;
+//     return re.test(password);
+// }
+
+
+
+// });

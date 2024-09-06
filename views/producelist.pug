@@ -1,4 +1,4 @@
-extends sales-agentdashboard.pug
+extends manager-dashboard.pug
 
 block content
   doctype html
@@ -17,12 +17,12 @@ block content
               th(scope='col') Date
               th(scope='col') Time of Produce 
               th(scope='col') Tonnage in Kg
-              th(scope='col') The Cost Per Kg
+              th(scope='col') Cost Per Kg
               th(scope='col') The Total Cost
               th(scope='col') Name of Dealer
               th(scope='col') Branch Name
               th(scope='col') Dealer's Contact
-              th(scope='col') The Price to be Sold at per Kg
+              th(scope='col') Price to be Sold at 
               th(scope='col') Action
           tbody
             if produces.length 
@@ -46,8 +46,6 @@ block content
                     form(method="POST" action='/deleteProduce')
                       input(type="hidden", placeholder="", name="id", value=produce._id)
                       button.btn.btn-danger.btn-sm(class="delete-btn" type="submit") Delete
-                  td
-                    a.btn.btn-success.btn-sm(href='/thesale')  Sale
             else
               tr
                   td(colspan="8", class="text-center") No produce yet :()

@@ -1,57 +1,71 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Goods sold on credit
-  link(rel='stylesheet' href='/css/credit.css')
-.container
-  h1 Credit Sales
-  form.goods-sold-form(action='/creditsale' method='POST')
-   label(for='buyer') Name of Buyer:
-   input#buyer(type='text' name='buyer')
-   br
-   br
-   label(for='nin') National ID (NIN):
-   input#nin(type='text' name='nin')
-   br
-   br
-   label(for='location') Location:
-   input#location(type='text' name='location')
-   br
-   br
-   label(for='contact') Contact:
-   input#contact(type='text' name='contact')
-   br
-   br
-   label(for='amountDue') Amount Due:
-   input#amountDue(type='number' name='amountDue')
-   br
-   br
-   label(for='salesAgentName') Sales Agent Name:
-   input#salesAgentName(type='text' name='salesAgentName')
-   br
-   br
-   label(for='dueDate') Due Date:
-   input#dueDate(type='date' name='dueDate')
-   br
-   br
-   label(for='theProduceName') The Produce Name:
-   input#theProduceName(type='text' name='theProduceName')
-   br
-   br
-   label(for='typeOfProduce') Type of Produce:
-   select#typeOfProduce(name='typeOfProduce')
-    option(value='' selected='') Select Produce Type
-    option(value='Grains') Grains
-    option(value='Legumes') Legumes
-   br
-   br
-   label(for='quantity') Tonnage in Kgs:
-   input#quantity(type='text' name='quantity')
-   br
-   br
-   label(for='date') Date of Dispatch:
-   input#date(type='date' name='date')
-   br
-   br
-   input(type='submit' value='Submit')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Goods sold on credit
+    link(rel='stylesheet' href='/css/credit.css')
+  body
+    .container
+      h1 Credit Sales
+      form.goods-sold-form(action='/creditsale' method='POST' onsubmit='return validateForm()')
+        label(for='buyer') Name of Buyer:
+        input#buyer(type='text' name='buyer')
+        span#buyerError.error-message
+        br
+        br
+        label(for='nin') National ID (NIN):
+        input#nin(type='text' name='nin')
+        span#ninError.error-message
+        br
+        br
+        label(for='location') Location:
+        input#location(type='text' name='location')
+        span#locationError.error-message
+        br
+        br
+        label(for='contact') Contact:
+        input#contact(type='text' name='contact')
+        span#contactError.error-message
+        br
+        br
+        label(for='amountDue') Amount Due:
+        input#amountDue(type='number' name='amountDue')
+        span#amountDueError.error-message
+        br
+        br
+        label(for='salesAgentName') Sales Agent Name:
+        input#salesAgentName(type='text' name='salesAgentName')
+        span#salesAgentNameError.error-message
+        br
+        br
+        label(for='dueDate') Due Date:
+        input#dueDate(type='date' name='dueDate')
+        span#dueDateError.error-message
+        br
+        br
+        label(for='theProduceName') The Produce Name:
+        input#theProduceName(type='text' name='theProduceName')
+        span#theProduceNameError.error-message
+        br
+        br
+        label(for='typeOfProduce') Type of Produce:
+        select#typeOfProduce(name='typeOfProduce')
+          option(value='' selected='') Select Produce Type
+          option(value='Grains') Grains
+          option(value='Legumes') Legumes
+        span#typeOfProduceError.error-message
+        br
+        br
+        label(for='quantity') Tonnage in Kgs:
+        input#quantity(type='text' name='quantity')
+        span#quantityError.error-message
+        br
+        br
+        label(for='date') Date of Dispatch:
+        input#date(type='date' name='date')
+        span#dateError.error-message
+        br
+        br
+        input(type='submit' value='Submit')
+    script(src="/js/creditsale.js")

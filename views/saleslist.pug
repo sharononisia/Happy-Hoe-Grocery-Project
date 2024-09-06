@@ -17,6 +17,7 @@ block content
             th Date and Time
             th Customer Name
             th Items (Produce, Quantity, Price)
+            th Total Price
             th Action
             th
         tbody
@@ -28,6 +29,7 @@ block content
               td #{sale.date}
               td #{sale.customerName}
               td #{sale.items}
+              td #{sale.total}
               td
                 form(method="POST" action="/deleteSale")
                   input(type="hidden", placeholder="", name="id", value=sale._id )
@@ -35,6 +37,6 @@ block content
               td 
                 a.btn.btn-primary.btn-sm(href="/updatesale/"+sale._id) Update 
               td 
-                a.btn.btn-success.btn-sm(href="/bill/"+sale._id) Receipt      
+                a.btn.btn-success.btn-sm(href="/receipt/"+sale._id) Receipt      
           else 
             p No sales yet

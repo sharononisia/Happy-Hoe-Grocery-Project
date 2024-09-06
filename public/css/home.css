@@ -9,7 +9,7 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    /* background-image: url(/images/4.jpg); */
+    background-image: url(/images/ggt.jpg); 
     background-size: cover;
 
 } */
@@ -22,13 +22,20 @@ body, html {
 }
 
 h1 {
-    color: #1b6535;
-    font-size: xx-large;
+    color: black;
+    font-size: 40px;
+    background-color: #e1dd72; /* Background color for the frame */
+    padding: 20px;          /* Adds space inside the frame */
+    border: 2px solid #e1dd72; /* Optional border for the frame */
+    display: inline-block;   /* Makes the background fit the text */
+
 }
 
 p {
     margin: 20px 0;
-    color: black;
+    color: whitesmoke;
+    font-size: 30px;
+    padding:10px
 }
 
 a {

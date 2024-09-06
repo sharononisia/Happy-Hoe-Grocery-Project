@@ -6,7 +6,7 @@ body {
     }
     /* Horizontal Navbar Styles */
     .horizontal-navbar {
-    background-color: #333;
+    background-color: #1b6535;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -21,33 +21,14 @@ body {
     text-decoration: none;
     }
     .horizontal-navbar a:hover {
-    background-color: #ddd;
+    background-color: #1b6535;
     color: black;
     }
-    .search-container {
-    float: right;
-    margin-right: 16px;
-    }
-    .search-container input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-    }
-    .search-container button {
-    float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-    }
+   
     /* Vertical Navbar Styles */
     .vertical-navbar {
     width: 200px;
-    background-color: #f1f1f1;
+    background-color: #e1dd72;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -60,7 +41,7 @@ body {
     text-decoration: none;
     }
     .vertical-navbar a:hover {
-    background-color: #555;
+    background-color: #e1dd72;
     color: white;
     }
     /* Main Content */
@@ -68,5 +49,28 @@ body {
     margin-left: 200px;
     margin-top: 50px;
     padding: 20px;
+    }
+    .stat-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap; /* This allows images to wrap to the next line if they don't fit */
+        gap: 10px; /* Space between images */
+    }
+    
+    .stat-card {
+        max-width: 140px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        padding:10px;
+    }
+
+    .stat-card:hover {
+        transform: scale(1.05);
+    }
+    
+    .stat-card .stat-image{
+        width: 100%;
+        border-radius: 8px;
     }
     

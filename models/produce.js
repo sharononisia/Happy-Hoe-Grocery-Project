@@ -17,7 +17,7 @@ const produceSchema = new mongoose.Schema({
         trim: true,
     },
     quantity: {
-        type: String,
+        type: Number,
         trim: true,
     },
     theCostPerKg: {
@@ -25,7 +25,7 @@ const produceSchema = new mongoose.Schema({
         trim: true,
     },
     theTotalCost: {
-        type: String,
+        type: Number,
         trim: true,
     },
     nameOfDealer: {
@@ -41,7 +41,7 @@ const produceSchema = new mongoose.Schema({
         trim: true,
     },
     thePriceToBeSoldAt: {
-        type: String,
+        type: Number,
         trim: true,
     },
 });

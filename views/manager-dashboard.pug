@@ -13,10 +13,6 @@ nav.horizontal-navbar
   a(href='/signup') Add Users
   a(href='creditsale') Make Credit sales
   a(href='stock') Purchase 
-  .search-container
-    form(action='#' onsubmit='return false;')
-      input#search-input(type='text' placeholder='Search..' name='search')
-      button(type='submit' onclick='performSearch()') Search
 nav.vertical-navbar
   a(href='/Pro-list') Produce List
   a(href='all-users') All Users List
@@ -25,6 +21,31 @@ nav.vertical-navbar
   a(href='logout') Logout
 .main-content
   h1 Welcome to KGL Grocery Limited Manager's Dashboard.
+  section.stat-container
+    .stat-card
+      img.stat-image(src='/images/bb.jpg' alt='Image 2')
+      h3(style='text-align: center;')  Beans
+      p(style='text-align: center;')
+    .stat-card
+      img.stat-image(src='/images/rrr.jpg' alt='Image 2')
+      h3(style='text-align: center;') Rice
+      p(style='text-align: center;')
+    .stat-card
+      img.stat-image(src='/images/mmz.jpg' alt='Image 2')
+      h3(style='text-align: center;') Maize
+      p(style='text-align: center;')
+    .stat-card
+      img.stat-image(src='/images/gnt.jpg' alt='Image 2')
+      h3(style='text-align: center;') G-nuts
+      p(style='text-align: center;')
+    .stat-card
+      img.stat-image(src='/images/ssb.jpg' alt='Image 2')
+      h3(style='text-align: center;') Soybeans
+      p(style='text-align: center;')
+    .stat-card
+      img.stat-image(src='/images/cowps1.jpg' alt='Image 2')
+      h3(style='text-align: center;') Cow peas
+      p(style='text-align: center;')
     
   main.content
       block content

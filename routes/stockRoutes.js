@@ -83,4 +83,23 @@ router.post("/deleteProduce", async (req, res) => {
     }
     });
 
+
+
+
+    router.post('/produce/:id', async (req, res) => {
+        try {
+          const produceId = req.params.id;
+          const additionalQuantity = parseInt(req.body.additionalQuantity);
+      
+          const produce = await Produce.findById(produceId);
+          produce.quantity += additionalQuantity;
+      
+          await produce.save();
+          res.redirect('/dashboard'); // Redirect back to your dashboard
+        } catch (error) {
+          res.status(500).send(error);
+        }
+      });
+      
+
 module.exports = router;

@@ -1,5 +1,5 @@
 body{
-    /* background-image: url(/images/6.jpg); */
+    background-image: url(/images/ggt.jpg); 
     background-size: cover;
     max-width: 500px;
     border-radius: 8px;
@@ -11,7 +11,7 @@ body{
     align-content: center
 }
 
-body.container {
+.container {
     max-width: 500px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -50,5 +50,19 @@ input[type="submit"]:hover {
     background-color:#1b6535;
 
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    display: none; /* Initially hide error messages */
+  }
+  
+  input.error-border,
+  select.error-border {
+    border: 2px solid red;
+  }
+  
+
+
 
 

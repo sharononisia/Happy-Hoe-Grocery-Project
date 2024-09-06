@@ -20,6 +20,10 @@ const saleSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },  
+    total: {
+        type: String,
+        trim: true,
+    }, 
 });
 
 

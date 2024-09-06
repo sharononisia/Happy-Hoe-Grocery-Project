@@ -7,7 +7,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.6;    
+}
+
+h1{
+    color: #e1dd72;
+
 }
 .form-body{
     display: flex;
@@ -17,7 +22,7 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #1b6535;
 }
 
 main {
@@ -52,7 +57,7 @@ main {
     max-width: 500px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: #04fe10;
+    background: #1b6535;
     padding:20px;
     margin: 80px auto;
 }
@@ -60,7 +65,7 @@ main {
     max-width: 500px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: #04fe10;
+    background: #1b6535;
     padding:20px;
     margin: 80px auto;
 }
@@ -74,6 +79,6 @@ main {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #050404;
-    color: #f4f4f4;
+    background-color: #1b6535;
+    color: #e1dd72;
 }

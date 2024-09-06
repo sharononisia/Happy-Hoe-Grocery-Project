@@ -1,4 +1,4 @@
-extends sales-agentdashboard.pug
+extends manager-dashboard.pug
 
 block content 
  
@@ -34,7 +34,7 @@ block content
                 td
                   a.btn.btn-primary.btn-sm(href="/update-user/"+signup._id) Edit
                 td
-                  a.btn.btn-success.btn-sm(href="/register"+signup._id) Add
+                  a.btn.btn-success.btn-sm(href="/user") Add
           else
             tr
               td(colspan="6") No users signed up yet

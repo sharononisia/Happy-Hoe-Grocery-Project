@@ -92,9 +92,12 @@ router.get('/receipt', (req, res) => {
 router.get("/receipt/:id", async (req, res) => {
     try {
         const sale = await Sale.findOne({ _id: req.params.id })
-            .populate("produceName", "produceName")
-            .populate("saleAgent", "name");
-        console.log("my sale", sale)
+            .populate("items", "items")
+            .populate("salesAgent", "name");
+            if (!sale) {
+                return res.status(404).send("The item isn't in the database");
+            }
+        //console.log("my sale", sale)
         // const formattedDate = formatDate(sale.saledate);
         res.render("receipt", {
             sale,
@@ -102,10 +105,58 @@ router.get("/receipt/:id", async (req, res) => {
             title: "Receipt"
         });
     } catch (error) {
+        console.error("Error fetching sale", error);
         res.status(400).send("The item isn't in the database")
     }
 
 })
+
+
+router.get('/receipt/:id', async (req, res) => {
+    try {
+        const sale = await Sale.findById(req.params.id).exec();
+        if (!sale) {
+            return res.status(404).send('Sale not found');
+        }
+        res.render('receipt', { sale });
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
+
+
+
+
+
+
+
+router.post('/sale/:id', async (req, res) => {
+    try {
+      const produceId = req.params.id;
+      const soldQuantity = parseInt(req.body.soldQuantity);
+  
+      const produce = await Produce.findById(produceId);
+      produce.quantity -= soldQuantity;
+  
+      if (produce.quantity < 0) {
+        produce.quantity = 0; // Prevent negative quantity
+      }
+  
+      await produce.save();
+      res.redirect('/dashboard'); // Redirect back to your dashboard
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });
+  
+
+
+
+
+
+
+
+
 
 
 
