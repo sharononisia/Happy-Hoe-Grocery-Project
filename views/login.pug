@@ -8,8 +8,12 @@ html(lang="en")
   body
     h2 Login
     form(action="/login" method="POST")
-      input(type="email" name="email" placeholder="Your Email" required)
-      input(type="password" name="password" placeholder="Password" required)
+      label(for="email") Email:
+      input(type="email" name="email" placeholder="Enter Email" )
+      label(for="password") Password:
+      input(type="password" name="password" placeholder="Enter Password" )
+      br
       input(type="submit" value="Login")
+      br
     a(href="/signup") Don't have an account? Register
   script(src='/js/formValidation.js')

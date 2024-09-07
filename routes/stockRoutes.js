@@ -100,6 +100,66 @@ router.post("/deleteProduce", async (req, res) => {
           res.status(500).send(error);
         }
       });
+
+
+      // router.get('/viewStock', async (req, res) => {
+      //   try {
+      //     const produce = await Produce.aggregate([
+      //       { 
+      //         $match: { produce: { $in: ['Beans', 'Maize', 'Soybeans', 'Cow Peas', 'G-nuts', 'Rice'] } }  
+      //       },
+      //       { 
+      //         $group: { 
+      //           _id: '$produce', 
+      //           totalQuantity: { $sum: '$quantity' }  
+      //         } 
+      //       }
+      //     ]);
+      
+          
+      //     const produceData = produce.map(item => ({
+      //       produce: item._id,  
+      //       quantity: item.totalQuantity || 0 
+      //     }));
+      
+      //     res.render('viewStock', {
+      //       produce: produceData,  
+      //     });
+      //   } catch (err) {
+      //     console.error(err);
+      //     res.status(500).send('Internal Server Error');
+      //   }
+      // });
+
+      // View Stock with aggregated quantities
+router.get('/viewStock', async (req, res) => {
+  try {
+      const produce = await Produce.aggregate([
+          { 
+            $match: { produce: { $in: ['Beans', 'Maize', 'Soybeans', 'Cow Peas', 'G-nuts', 'Rice'] } }  
+          },
+          { 
+            $group: { 
+              _id: '$produce', 
+              totalQuantity: { $sum: '$quantity' }  // Aggregating the total quantity
+            } 
+          }
+      ]);
+
+      const produceData = produce.map(item => ({
+          produce: item._id,  
+          quantity: item.totalQuantity || 0 
+      }));
+
+      res.render('viewStock', {
+          produce: produceData,  // Pass the aggregated data to the view
+      });
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
       
 
 module.exports = router;

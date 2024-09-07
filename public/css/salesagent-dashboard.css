@@ -51,6 +51,9 @@ body {
     margin-top: 50px;
     padding: 20px;
     }
+    h1{
+        color: whitesmoke;
+    }
 
     /* footer {
         text-align: center;

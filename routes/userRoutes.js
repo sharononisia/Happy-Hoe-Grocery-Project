@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 });
 
 // manager route
-// connectEnsureLogin.ensureLoggedIn(),
+connectEnsureLogin.ensureLoggedIn(),
 router.get("/manager", (req, res) => {
   // res.send("Welcome to KGL Management System");
   res.render("manager-dashboard");

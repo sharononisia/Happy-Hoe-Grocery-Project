@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Happy Hoe Grocery Store
+    link(rel='stylesheet' href='/css/view.css')
+  body
+    //- Navbar section
+    nav.navbar
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/addUser') Signup
+        li
+          a(href='/signUser') Login
+
+    //- Container for produce cards
+    .container
+      each item in produce
+        .card
+          h2 #{item.produce}
+          p Total Quantity : #{item.quantity || 0}

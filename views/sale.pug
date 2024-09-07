@@ -1,34 +1,33 @@
-doctype html
-head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Receipt Generator
-    link(rel='stylesheet' href='/css/sales.css') 
-//- nav.horizontal-navbar
-//-   a(href='home') Home
-//-   a(href='thesale') Make Sales
-//-   a(href='creditsale') Make Credit sales
-//-   a(href='stock') Purchase 
-.container
-    h1 Record Sales
-    form#receiptForm(action='/thesale' method='POST' )
-      label(for='salesAgent') The Sales Agent Name:
-      input#salesAgent(type='text' name='salesAgent')
-      span#salesAgentError.error
-      label(for='transactionId') Transaction ID:
-      input#transactionId(type='text' name='transactionId')
-      span#transactionIdError.error
-      label(for='date') Date and Time:
-      input#date(type='datetime-local' name='date')
-      span#dateError.error
-      label(for='customerName') Customer Name:
-      input#customerName(type='text' name='customerName')
-      span#customerNameError.error
-      label(for='items') Items (format: Item, Quantity, Price):
-      textarea#items(name='items' rows='3')
-      span#itemsError
-      label(for='total') Total:
-      input#total(type='text' name='total' )
-      span#totalError.error
-      button(type='submit') Submit
-script(src='/js/sales.js')
+extends sales-agentdashboard.pug
+
+block content  
+ 
+    doctype html
+    html(lang="en")
+        head
+            title Receipt Generator
+            link(rel='stylesheet' href='/css/sales.css') 
+        body
+            .container
+                h2 Record Sales
+                form#receiptForm(action='/thesale' method='POST' )
+                label(for='salesAgent') The Sales Agent Name:
+                input#salesAgent(type='text' name='salesAgent')
+                span#salesAgentError.error
+                label(for='transactionId') Transaction ID:
+                input#transactionId(type='text' name='transactionId')
+                span#transactionIdError.error
+                label(for='date') Date and Time:
+                input#date(type='datetime-local' name='date')
+                span#dateError.error
+                label(for='customerName') Customer Name:
+                input#customerName(type='text' name='customerName')
+                span#customerNameError.error
+                label(for='items') Items (format: Item, Quantity, Price):
+                textarea#items(name='items' rows='3')
+                span#itemsError
+                label(for='total') Total:
+                input#total(type='text' name='total' )
+                span#totalError.error
+                button(type='submit') Submit
+            script(src='/js/sales.js')

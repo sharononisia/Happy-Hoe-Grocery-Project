@@ -1,82 +1,86 @@
-doctype html
-html
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Produce Procured
-    link(rel='stylesheet' href='/css/produce.css')
-  body
-    .container
-      h1 Produce Procured Records
-      form.produce-form(action='/stock' method='POST' onsubmit='return validateForm()')
-      
-        label(for='produce') Name of Produce:
-        select#produce(name='produce')
-          option(value='' selected='') Select name of produce
-          option(value='Beans') Beans
-          option(value='Maize') Maize
-          option(value='G-nuts') G-nuts
-          option(value='Cow Peas') Cow Peas
-          option(value='Rice') Rice
-          option(value='Soypeas') Soybeans
-        span#produceError.error-message
-        br
-        br
-        label(for='typeOfProduce') Type of Produce:
-        select#typeOfProduce(name='typeOfProduce')
-          option(value='' selected='') Select type of produce
-          option(value='Legumes') Legumes
-          option(value='Grains') Grains
-        span#typeOfProduceError.error-message
-        br
-        br
-        label(for='date') Date:
-        input#date(type='date' name='date')
-        span#dateError.error-message
-        br
-        br
-        label(for='timeOfProduce') Time of Produce:
-        input#timeOfProduce(type='time' name='timeOfProduce')
-        span#timeOfProduceError.error-message
-        br
-        br
-        label(for='quantity') Tonnage in kg:
-        input#quantity(type='number' name='quantity')
-        span#quantityError.error-message
-        br
-        br
-        label(for='theCostPerKg') The Cost Per Kg:
-        input#theCostPerKg(type='number' name='theCostPerKg')
-        span#theCostPerKgError.error-message
-        br
-        br
-        label(for='theTotalCost') The Total Cost:
-        input#theTotalCost(type='number' name='theTotalCost')
-        span#theTotalCostError.error-message
-        br
-        br
-        label(for='nameOfDealer') Name of Dealer:
-        input#nameOfDealer(type='text' name='nameOfDealer')
-        span#nameOfDealerError.error-message
-        br
-        br
-        label(for='theBranchName') The Branch Name:
-        select#theBranchName(name='theBranchName')
-          option(value='' disabled='' selected='') Select branch
-          option(value='matugga') Matugga
-          option(value='maganjo') Maganjo
-        span#theBranchNameError.error-message
-        br
-        br
-        label(for='contact') Contact:
-        input#contact(type='text' name='contact')
-        span#contactError.error-message
-        br
-        br
-        label(for='thePriceToBeSoldAt') The Price to be Sold at per Kg:
-        input#thePriceToBeSoldAt(type='number' name='thePriceToBeSoldAt')
-        span#thePriceToBeSoldAtError.error-message
-        br
-        br
-        input(type='submit' value='Submit')
-    script(src='/js/produce.js')
+extends sales-agentdashboard.pug
+
+block content    
+  
+  doctype html
+  html
+    head
+      meta(charset='UTF-8')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0')
+      title Produce Procured
+      link(rel='stylesheet' href='/css/produce.css')
+    body
+      .container
+        h2 Produce Procured Records
+        form.produce-form(action='/stock' method='POST' onsubmit='return validateForm()')
+        
+          label(for='produce') Name of Produce:
+          select#produce(name='produce')
+            option(value='' selected='') Select name of produce
+            option(value='Beans') Beans
+            option(value='Maize') Maize
+            option(value='G-nuts') G-nuts
+            option(value='Cow Peas') Cow Peas
+            option(value='Rice') Rice
+            option(value='Soypeas') Soybeans
+          span#produceError.error-message
+          br
+          br
+          label(for='typeOfProduce') Type of Produce:
+          select#typeOfProduce(name='typeOfProduce')
+            option(value='' selected='') Select type of produce
+            option(value='Legumes') Legumes
+            option(value='Grains') Grains
+          span#typeOfProduceError.error-message
+          br
+          br
+          label(for='date') Date:
+          input#date(type='date' name='date')
+          span#dateError.error-message
+          br
+          br
+          label(for='timeOfProduce') Time of Produce:
+          input#timeOfProduce(type='time' name='timeOfProduce')
+          span#timeOfProduceError.error-message
+          br
+          br
+          label(for='quantity') Tonnage in kg:
+          input#quantity(type='number' name='quantity')
+          span#quantityError.error-message
+          br
+          br
+          label(for='theCostPerKg') The Cost Per Kg:
+          input#theCostPerKg(type='number' name='theCostPerKg')
+          span#theCostPerKgError.error-message
+          br
+          br
+          label(for='theTotalCost') The Total Cost:
+          input#theTotalCost(type='number' name='theTotalCost')
+          span#theTotalCostError.error-message
+          br
+          br
+          label(for='nameOfDealer') Name of Dealer:
+          input#nameOfDealer(type='text' name='nameOfDealer')
+          span#nameOfDealerError.error-message
+          br
+          br
+          label(for='theBranchName') The Branch Name:
+          select#theBranchName(name='theBranchName')
+            option(value='' disabled='' selected='') Select branch
+            option(value='matugga') Matugga
+            option(value='maganjo') Maganjo
+          span#theBranchNameError.error-message
+          br
+          br
+          label(for='contact') Contact:
+          input#contact(type='text' name='contact')
+          span#contactError.error-message
+          br
+          br
+          label(for='thePriceToBeSoldAt') The Price to be Sold at per Kg:
+          input#thePriceToBeSoldAt(type='number' name='thePriceToBeSoldAt')
+          span#thePriceToBeSoldAtError.error-message
+          br
+          br
+          input(type='submit' value='Submit')
+      script(src='/js/produce.js')

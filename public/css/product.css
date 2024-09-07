@@ -30,6 +30,32 @@ main {
     
 }
 
+ /* Card styling */
+ .card {
+    background-color: #a9cfec;
+    border: 1px solid #ddd;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover effect for shadow */
+  }
+  
+  .card:active {
+    transform: scale(1.1); /* Pop effect when clicked */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on click */
+  }
+  
+  .card h2 {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+  }
+
+
 .stat-container {
     display: flex;
     justify-content: space-around;
@@ -82,3 +108,5 @@ footer {
     background-color: #1b6535;
     color: #e1dd72;
 }
+
+

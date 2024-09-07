@@ -4,6 +4,7 @@ const connectEnsureLogin = require('connect-ensure-login');
 
 // import model
 const Sale = require('../models/sale');
+const Produce = require('../models/produce');
 
 router.get('/thesale', (req, res) => {
     res.render('sale', { title: "Sale" });
@@ -124,35 +125,35 @@ router.get('/receipt/:id', async (req, res) => {
     }
 });
 
+router.post('/thesale', async (req, res) => {
+  try {
+    const { produce, quantity } = req.body;
 
+    // Find the produce item by its name
+    const Produce = await Produce.findOne({ produce: produce });
 
-
-
-
-
-router.post('/sale/:id', async (req, res) => {
-    try {
-      const produceId = req.params.id;
-      const soldQuantity = parseInt(req.body.soldQuantity);
-  
-      const produce = await Produce.findById(produceId);
-      produce.quantity -= soldQuantity;
-  
-      if (produce.quantity < 0) {
-        produce.quantity = 0; // Prevent negative quantity
-      }
-  
-      await produce.save();
-      res.redirect('/dashboard'); // Redirect back to your dashboard
-    } catch (error) {
-      res.status(500).send(error);
+    // Check if the produce exists and if there's enough stock
+    if (!produce || produce.quantity < quantity) {
+      return res.status(400).send('Insufficient stock');
     }
-  });
-  
 
+    // Deduct the sold quantity from stock
+    produce.quantity -= quantity;
+    await produce.save();
 
+    // Send success response or redirect after updating stock
+    res.status(200).send('Sale recorded successfully');
+    
+    // Optional: you can redirect if required instead of sending a response
+    // res.redirect('/someRoute');
 
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
+      
 
 
 

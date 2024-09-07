@@ -65,3 +65,35 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* Basic form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+   */
+  /* Error message styling */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+  }
+  
