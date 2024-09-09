@@ -8,7 +8,7 @@ body {
   
   /* Navbar styling */
   .navbar {
-    background-color: #333;
+    background-color: #1b6535;
     width: 100%; /* Full width of the page */
     position: fixed; /* Fixes the navbar at the top of the page */
     top: 0;
@@ -22,7 +22,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
   }
   
   .navbar ul li {
@@ -30,7 +30,7 @@ body {
   }
   
   .navbar ul li a {
-    color: white;
+    color: #e1dd72;
     text-decoration: none;
     font-size: 1.2em;
     padding: 5px 10px;
@@ -53,7 +53,7 @@ body {
   
   /* Card styling */
   .card {
-    background-color: #a9cfec;
+    background-color: #1b6535;
     border: 1px solid #ddd;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -78,5 +78,118 @@ body {
   
   .card p {
     font-size: 1.2em;
-    color: #333;
+    color: #1b6535;
   }
+
+ /* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;    
+}
+
+h1{
+  color: #e1dd72;
+
+}
+.form-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #1b6535;
+}
+
+main {
+  padding: 20px;
+  
+}
+
+/* Card styling */
+.card {
+  background-color: #e1dd72;
+  border: 1px solid #ddd;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover effect for shadow */
+}
+
+.card:active {
+  transform: scale(1.1); /* Pop effect when clicked */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on click */
+}
+
+.card h2 {
+  font-size: 1.7em;
+  margin-bottom: 10px;
+}
+
+
+.stat-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* This allows images to wrap to the next line if they don't fit */
+  gap: 10px; /* Space between images */
+}
+
+.stat-card {
+  max-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  padding:10px;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.stat-card .stat-image{
+  width: 100%;
+  border-radius: 8px;
+}
+.form-container {
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #1b6535;
+  padding:20px;
+  margin: 80px auto;
+}
+.register-container {
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #1b6535;
+  padding:20px;
+  margin: 80px auto;
+}
+.register-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1b6535;
+  color: #e1dd72;
+}
+
+

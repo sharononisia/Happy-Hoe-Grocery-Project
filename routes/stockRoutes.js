@@ -18,7 +18,6 @@ router.post('/stock', async (req, res) => {
         res.status(404).send("unable to save produce to db");
         console.log("Error saving produce", error);
     }
-
 })
 router.get('/Pro-list', async (req, res) => {
     try {
@@ -161,5 +160,4 @@ router.get('/viewStock', async (req, res) => {
 });
 
       
-
 module.exports = router;

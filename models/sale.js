@@ -21,7 +21,7 @@ const saleSchema = new mongoose.Schema({
         trim: true,
     },  
     total: {
-        type: String,
+        type: Number,
         trim: true,
     }, 
 });

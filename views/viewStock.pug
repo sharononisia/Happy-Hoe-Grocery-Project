@@ -12,13 +12,76 @@ html
         li
           a(href='/') Home
         li
-          a(href='/addUser') Signup
-        li
-          a(href='/signUser') Login
+          a(href='/login') Login
 
     //- Container for produce cards
+    //- header
+      //-  h2(style='text-align: center;') KGL GROCERY LTD AVAILABLE STOCK IN KILOGRAMS
     .container
       each item in produce
         .card
           h2 #{item.produce}
           p Total Quantity : #{item.quantity || 0}
+    header
+        h1(style='text-align: center;') KGL GROCERY LTD PRODUCTS
+    main
+  section.stat-container
+    .stat-card
+      img.stat-image(src='/images/redb4.jpg' alt='Image 2')
+      h3(style='text-align: center;') Red Beans
+      p(style='text-align: center;')
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/blackb.jpg' alt='Image 2')
+      h3 Black Beans
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/whiteb.jpg' alt='Image 2')
+      h3 White Beans
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/greenb.jpg' alt='Image 2')
+      h3 Green Beans
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/rice1.jpg' alt='Image 2')
+      h3 Rice 
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/rice5.jpg' alt='Image 2')
+      h3 Rice
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/whitem.jpg' alt='Image 2')
+      h3 Maize
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/mz4.jpg' alt='Image 2')
+      h3 Maize
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/redgn2.jpg' alt='Image 2')
+      h3 G-nuts
+    
+  
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/pn1.jpg' alt='Image 2')
+      h3 G-nuts
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/soyb1.jpg' alt='Image 2')
+      h3 Soya Beans
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/soyb2.jpg' alt='Image 2')
+      h3 Soya Beans
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/cowp.jpg' alt='Image 2')
+      h3 Cow peas
+      
+    .stat-card(style='text-align: center;')
+      img.stat-image(src='/images/cowps1.jpg' alt='Image 2')
+      h3 Cow Peas
+      
+footer
+  p &copy; 2024 Designed by Sharon.O.

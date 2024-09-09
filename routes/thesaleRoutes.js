@@ -19,7 +19,6 @@ router.post('/thesale', async (req, res) => {
         res.status(404).send("unable to save sales to db");
         console.log("Error saving sales", error);
     }
-
 })
 router.get('/saleslist', async (req, res) => {
     try {
@@ -92,13 +91,13 @@ router.get('/receipt', (req, res) => {
 
 router.get("/receipt/:id", async (req, res) => {
     try {
-        const sale = await Sale.findOne({ _id: req.params.id })
+        const sale = await Sale.findById({ _id: req.params.id })
             .populate("items", "items")
             .populate("salesAgent", "name");
             if (!sale) {
                 return res.status(404).send("The item isn't in the database");
             }
-        //console.log("my sale", sale)
+        // console.log("my sale", sale)
         // const formattedDate = formatDate(sale.saledate);
         res.render("receipt", {
             sale,
@@ -125,7 +124,7 @@ router.get('/receipt/:id', async (req, res) => {
     }
 });
 
-router.post('/thesale', async (req, res) => {
+router.post('/sale/:id', async (req, res) => {
   try {
     const { produce, quantity } = req.body;
 
@@ -154,11 +153,4 @@ router.post('/thesale', async (req, res) => {
 });
 
       
-
-
-
-
-
-
-
 module.exports = router;

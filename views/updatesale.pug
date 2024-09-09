@@ -17,5 +17,7 @@ head
     input#customerName(type='text' name='customerName' value = sale.customerName)
     label(for='items') Items (format: Item, Quantity, Price):
     input#items(name='items' value = sale.items rows='5' )
+    label(for='total') Total:
+    input#total(type='number' name='total' value = sale.total)
     button(type='submit') Submit
 script(src='/js/gen.js')
