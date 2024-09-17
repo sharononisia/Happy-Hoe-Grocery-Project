@@ -38,11 +38,11 @@ function showError(fieldId, message) {
     }
   
     // NIN validation
-    clearError('nin');
-    if (!/^[A-Z0-9]{13}$/.test(nin)) {
-      showError('nin', "Please enter a valid NIN (13 alphanumeric characters).");
-      isValid = false;
-    }
+    // clearError('nin');
+    // if (!/^[A-Z0-9]{13}$/.test(nin)) {
+    //   showError('nin', "Please enter a valid NIN (13 alphanumeric characters).");
+    //   isValid = false;
+    // }
   
     // Location validation
     clearError('location');

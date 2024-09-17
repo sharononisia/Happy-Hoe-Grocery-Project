@@ -1,26 +1,34 @@
 const express = require('express');
 const router = express.Router();
-const connectEnsureLogin = require('connect-ensure-login');
+// const connectEnsureLogin = require('connect-ensure-login');
 
 // import model
 const Sale = require('../models/sale');
 const Produce = require('../models/produce');
 
+
 router.get('/thesale', (req, res) => {
     res.render('sale', { title: "Sale" });
 })
 
+
+
 router.post('/thesale', async (req, res) => {
-    try {
+    try{
         const newSale = new Sale(req.body);
         await newSale.save();
-        res.redirect('/saleslist');
+        res.redirect('saleslist');
+        // res.render('receipt')
     } catch (error) {
-        res.status(404).send("unable to save sales to db");
-        console.log("Error saving sales", error);
+        res.status(404).send("Unable to save sale to db");
+        console.log("Error saving sale", error);
     }
 })
-router.get('/saleslist', async (req, res) => {
+
+
+   
+      
+  router.get('/saleslist', async (req, res) => {
     try {
         const Items = await Sale.find().sort({ $natural: -1 }); //this is for sorting the new 
         res.render('saleslist', {
@@ -35,6 +43,7 @@ router.get('/saleslist', async (req, res) => {
 
     }
 });
+
 
 // get sales update form
 router.get("/updatesale/:id", async (req, res) => {
@@ -84,73 +93,35 @@ router.post("/deleteSale", async (req, res) => {
 });
 
 
-// generate receipt
+//generate receipt
 router.get('/receipt', (req, res) => {
     res.render('receipt', { title: "Receipt" });
-})
-
-router.get("/receipt/:id", async (req, res) => {
-    try {
-        const sale = await Sale.findById({ _id: req.params.id })
-            .populate("items", "items")
-            .populate("salesAgent", "name");
-            if (!sale) {
-                return res.status(404).send("The item isn't in the database");
-            }
-        // console.log("my sale", sale)
-        // const formattedDate = formatDate(sale.saledate);
-        res.render("receipt", {
-            sale,
-            // formattedDate,
-            title: "Receipt"
-        });
-    } catch (error) {
-        console.error("Error fetching sale", error);
-        res.status(400).send("The item isn't in the database")
-    }
-
 })
 
 
 router.get('/receipt/:id', async (req, res) => {
     try {
-        const sale = await Sale.findById(req.params.id).exec();
+        // Fetch the sale from the database by ID
+        const sale = await Sale.findById(req.params.id)
+            .populate('items')
+            .populate('salesAgent', 'name')
+            .exec();
+
+        // If sale not found, return a 404 error
         if (!sale) {
             return res.status(404).send('Sale not found');
         }
-        res.render('receipt', { sale });
+
+        // Render the receipt view with the sale data
+        res.render('receipt', { 
+            sale,  // Pass the sale data to the view
+            title: 'Sale Receipt' // Optional title for the view
+        });
     } catch (error) {
-        res.status(500).send('Server error');
+        console.error('Error fetching sale:', error);
+        res.status(400).send('Server error');
     }
 });
 
-router.post('/sale/:id', async (req, res) => {
-  try {
-    const { produce, quantity } = req.body;
-
-    // Find the produce item by its name
-    const Produce = await Produce.findOne({ produce: produce });
-
-    // Check if the produce exists and if there's enough stock
-    if (!produce || produce.quantity < quantity) {
-      return res.status(400).send('Insufficient stock');
-    }
-
-    // Deduct the sold quantity from stock
-    produce.quantity -= quantity;
-    await produce.save();
-
-    // Send success response or redirect after updating stock
-    res.status(200).send('Sale recorded successfully');
     
-    // Optional: you can redirect if required instead of sending a response
-    // res.redirect('/someRoute');
-
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
-
-      
 module.exports = router;

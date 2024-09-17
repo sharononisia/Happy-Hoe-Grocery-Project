@@ -4,14 +4,22 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Login Page
-    Link(rel="stylesheet" href="/css/login.css")     
+    link(rel="stylesheet" href="/css/login.css")
   body
+    nav.navbar
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/login') Login
     h2 Login
-    form(action="/login" method="POST")
+    form(action="/login" method="POST" id="loginForm")
       label(for="email") Email:
-      input(type="email" name="email" placeholder="Enter Email" )
+      input(type="email" name="email" id="email" placeholder="Enter Email")
+      span(id="emailError" class="error-message")
       label(for="password") Password:
-      input(type="password" name="password" placeholder="Enter Password" )
+      input(type="password" name="password" id="password" placeholder="Enter Password")
+      span(id="passwordError" class="error-message")
       br
       input(type="submit" value="Login")
       br

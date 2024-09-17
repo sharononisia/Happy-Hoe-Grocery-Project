@@ -100,36 +100,6 @@ router.post("/deleteProduce", async (req, res) => {
         }
       });
 
-
-      // router.get('/viewStock', async (req, res) => {
-      //   try {
-      //     const produce = await Produce.aggregate([
-      //       { 
-      //         $match: { produce: { $in: ['Beans', 'Maize', 'Soybeans', 'Cow Peas', 'G-nuts', 'Rice'] } }  
-      //       },
-      //       { 
-      //         $group: { 
-      //           _id: '$produce', 
-      //           totalQuantity: { $sum: '$quantity' }  
-      //         } 
-      //       }
-      //     ]);
-      
-          
-      //     const produceData = produce.map(item => ({
-      //       produce: item._id,  
-      //       quantity: item.totalQuantity || 0 
-      //     }));
-      
-      //     res.render('viewStock', {
-      //       produce: produceData,  
-      //     });
-      //   } catch (err) {
-      //     console.error(err);
-      //     res.status(500).send('Internal Server Error');
-      //   }
-      // });
-
       // View Stock with aggregated quantities
 router.get('/viewStock', async (req, res) => {
   try {

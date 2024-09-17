@@ -1,53 +1,100 @@
+//- //- doctype html
+//- //- html(lang="en")
+//- //-   head
+//- //-     meta(charset="UTF-8")
+//- //-     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+//- //-     title Signup Page
+//- //-     link(rel="stylesheet" href="/css/signup.css")
+//- //-   body
+//- //-     h2 Sign Up
+//- //-     form(action="/signup" method="POST")
+//- //-       input(type="text" name="username" placeholder="User Name")
+//- //-       input(type="email" name="email" placeholder="Enter Email")
+//- //-       select(name="role")
+//- //-         option(value="" disabled selected) Select Your Role
+//- //-         option(value="manager") Manager
+//- //-         option(value="sales-agent") Sales Agent
+//- //-       select(name="branch")
+//- //-         option(value="" disabled selected) Select Your Branch
+//- //-         option(value="maganjo") Maganjo
+//- //-         option(value="matuga") Matuga        
+//- //-       input(type="password" name="password" placeholder="Password")
+//- //-       input(type="submit" class="register" value="signup")
+//- //-     a(href="/login") Already have an account? Login
+//-  script(src="/js/signup.js")
+
+
 //- doctype html
-//- html(lang="en")
-//-   head
-//-     meta(charset="UTF-8")
-//-     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-//-     title Signup Page
-//-     link(rel="stylesheet" href="/css/signup.css")
-//-   body
-//-     h2 Sign Up
-//-     form(action="/signup" method="POST")
-//-       input(type="text" name="username" placeholder="User Name")
-//-       input(type="email" name="email" placeholder="Enter Email")
-//-       select(name="role")
-//-         option(value="" disabled selected) Select Your Role
-//-         option(value="manager") Manager
-//-         option(value="sales-agent") Sales Agent
-//-       select(name="branch")
-//-         option(value="" disabled selected) Select Your Branch
-//-         option(value="maganjo") Maganjo
-//-         option(value="matuga") Matuga        
-//-       input(type="password" name="password" placeholder="Password")
-//-       input(type="submit" class="register" value="signup")
-//-     a(href="/login") Already have an account? Login
- script(src="/js/signup.js")
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   title Signup Page
+//-   link(rel='stylesheet' href='/css/signup.css')
+//- h2 Sign Up
+//- form(action='/signup' method='POST')
+//-   label(for='username') User Name:
+//-   input#username(type='text' name='username' placeholder='User Name' )
+//-   label(for='email') Email:
+//-   input#email(type='email' name='email' placeholder='Enter Email' )
+//-   label(for='role') Role:
+//-   select#role(name='role' )
+//-     option(value='' selected='') Select Your Role
+//-     option(value='manager') Manager
+//-     option(value='sales-agent') Sales Agent
+//-   label(for='branch') Branch:
+//-   select#branch(name='branch' )
+//-     option(value=''  selected='') Select Your Branch
+//-     option(value='maganjo') Maganjo
+//-     option(value='matuga') Matuga
+//-   label(for='password') Password:
+//-   input#password(type='password' name='password' placeholder='Password')
+//-   input(type='submit' value='Sign Up' class="register")
+//-   a(href="/login") Already have an account? Login
+//- script(src="/js/signup.js")
+
+
+
+
 
 
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Signup Page
-  link(rel='stylesheet' href='/css/signup.css')
-h2 Sign Up
-form(action='/signup' method='POST')
-  label(for='username') User Name:
-  input#username(type='text' name='username' placeholder='User Name' )
-  label(for='email') Email:
-  input#email(type='email' name='email' placeholder='Enter Email' )
-  label(for='role') Role:
-  select#role(name='role' )
-    option(value='' selected='') Select Your Role
-    option(value='manager') Manager
-    option(value='sales-agent') Sales Agent
-  label(for='branch') Branch:
-  select#branch(name='branch' )
-    option(value=''  selected='') Select Your Branch
-    option(value='maganjo') Maganjo
-    option(value='matuga') Matuga
-  label(for='password') Password:
-  input#password(type='password' name='password' placeholder='Password')
-  input(type='submit' value='Sign Up' class="register")
-script(src="/js/signup.js")
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Signup Page
+    link(rel='stylesheet' href='/css/signup.css')
+  body
+    h2 Sign Up
+    form(action='/signup' method='POST' id='signupForm')
+      label(for='username') User Name:
+      input#username(type='text' name='username' placeholder='User Name')
+      span#usernameError(class='error-message')
+
+      label(for='email') Email:
+      input#email(type='email' name='email' placeholder='Enter Email')
+      span#emailError(class='error-message')
+
+      label(for='role') Role:
+      select#role(name='role')
+        option(value='' selected='') Select Your Role
+        option(value='manager') Manager
+        option(value='sales-agent') Sales Agent
+      span#roleError(class='error-message')
+
+      label(for='branch') Branch:
+      select#branch(name='branch')
+        option(value='' selected='') Select Your Branch
+        option(value='maganjo') Maganjo
+        option(value='matuga') Matuga
+      span#branchError(class='error-message')
+
+      label(for='password') Password:
+      input#password(type='password' name='password' placeholder='Password')
+      span#passwordError(class='error-message')
+
+      input(type='submit' value='Sign Up' class='register')
+      a(href="/login") Already have an account? Login
+
+    script(src="/js/signup.js")
 

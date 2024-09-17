@@ -1,39 +1,56 @@
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-
-let error = 0
-const formValidation = (event) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
     const emailError = document.getElementById('emailError');
-    if (email.value == '') {
-        email.style.border = '1px solid red';
-        emailError.textContent = 'Please enter an email address';
-        emailError.style = 'color:red'
-        error++//value of error is increased by 1
-    }
-    else if (!email.value.match(emailRegex)) {
-        email.style.border = '1px solid red';
+    const passwordError = document.getElementById('passwordError');
+  
+    form.addEventListener('submit', function (e) {
+      let valid = true;
+      
+      // Reset error messages and styles
+      emailError.textContent = '';
+      passwordError.textContent = '';
+      emailInput.classList.remove('error');
+      passwordInput.classList.remove('error');
+  
+      // Validate email
+      const emailValue = emailInput.value.trim();
+      if (!emailValue) {
+        emailError.textContent = 'Email is required';
+        emailInput.classList.add('error');
+        valid = false;
+      } else if (!validateEmail(emailValue)) {
         emailError.textContent = 'Please enter a valid email address';
-        emailError.style = 'color:red'
-        error++ //value of error is increased by 1
+        emailInput.classList.add('error');
+        valid = false;
+      }
+  
+      // Validate password
+      const passwordValue = passwordInput.value.trim();
+      if (!passwordValue) {
+        passwordError.textContent = 'Password is required';
+        passwordInput.classList.add('error');
+        valid = false;
+      } else if (passwordValue.length < 5) {
+        passwordError.textContent = 'Password must be at least 5 characters long';
+        passwordInput.classList.add('error');
+        valid = false;
+      }
+  
+      // Prevent form submission if validation fails
+      if (!valid) {
+        e.preventDefault();
+      } else {
+        // Show success pop-up
+        alert('Form submitted successfully!');
+      }
+    });
+  
+    // Email validation helper function
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
     }
-    else {
-        email.style.border = '1px solid green';
-        emailError.textContent = '';
-    }
-    if (password.value == '') {
-        password.style.border = '1px solid red';
-        passwordError.textContent = 'Please enter a password';
-        passwordError.style = 'color:red'
-        error++//value of error is increased by 1
-    }
-    else if (password.value.length < 6) {
-        password.style.border = '1px solid red';
-        passwordError.textContent = 'Password should be at least 6 characters';
-        passwordError.style = 'color:red'
-        error++ //value of error is increased by 1
-    }
-    else {
-        password.style.border = '1px solid green';
-        passwordError.textContent = '';
-    }}
+  });
+  

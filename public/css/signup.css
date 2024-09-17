@@ -71,3 +71,26 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* signup.css */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  input.error, select.error {
+    border: 2px solid red;
+  }
+  
+  input.success, select.success {
+    border: 2px solid green;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  

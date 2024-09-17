@@ -31,7 +31,13 @@ head
     .receipt-items th {
     background-color: #f4f4f4;
     }
-form(action='/sale?id='+sale method='Post')
+
+//- p Sales Agent Name: #{sale.salesAgent}
+//- p Transaction Id: #{sale.transactionId}
+//- p Date: #{sale.date}
+
+
+form(action='/thesale?id='+sale_id method='Post')
   .receipt-container
     .receipt-header
       h1 KGL GROCERY LIMITED
@@ -63,11 +69,13 @@ form(action='/sale?id='+sale method='Post')
     .receipt-footer 
       button(onclick='window.print()') Print Receipt 
       //- button(onclick="window.location. a(href='/thesale')") Back
-      li
-        a(href='thesale') Back
+    
 script.
   document.addEventListener('DOMContentLoaded', () => {
   const receiptData = JSON.parse(localStorage.getItem('receiptData'));
+  //- const receiptData = !{JSON.stringify(sale)};
+  // Use the data directly in your script
+
   if (receiptData) {
   document.getElementById('salesAgent').innerText = `Agent: ${receiptData.salesAgent}`;
   document.getElementById('transactionId').innerText = `Transaction ID: ${receiptData.transactionId}`;
@@ -92,6 +100,7 @@ script.
   }
   });
 
+script(src="/js/sales.js")
 
 
 

@@ -89,11 +89,49 @@ form {
     cursor: pointer;
   }
    */
-  /* Error message styling */
-  .error-message {
+/* login.css */
+.error-message {
     color: red;
-    font-size: 14px;
-    margin-top: -5px;
-    margin-bottom: 10px;
+    font-size: 0.9em;
   }
+  input.error {
+    border: 2px solid red;
+  }
+
+
+    /* Navbar styling */
+    .navbar {
+        background-color: #1b6535;
+        width: 100%; /* Full width of the page */
+        position: fixed; /* Fixes the navbar at the top of the page */
+        top: 0;
+        left: 0;
+        padding: 15px 0;
+        z-index: 1000; /* Ensures the navbar is always on top */
+      }
+      
+      .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        /* justify-content: center; */
+      }
+      
+      .navbar ul li {
+        margin: 0 20px;
+      }
+      
+      .navbar ul li a {
+        color: #e1dd72;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 5px 10px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .navbar ul li a:hover {
+        background-color: #555;
+        border-radius: 5px;
+      }
   
