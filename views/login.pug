@@ -10,8 +10,6 @@ html(lang="en")
       ul
         li
           a(href='/') Home
-        li
-          a(href='/login') Login
     h2 Login
     form(action="/login" method="POST" id="loginForm")
       label(for="email") Email:
@@ -22,6 +20,4 @@ html(lang="en")
       span(id="passwordError" class="error-message")
       br
       input(type="submit" value="Login")
-      br
-    a(href="/signup") Don't have an account? Register
   script(src='/js/formValidation.js')
